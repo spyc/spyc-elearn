@@ -14,7 +14,7 @@ class ConsoleController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		return view('console.index');
 	}
 
 	/**
