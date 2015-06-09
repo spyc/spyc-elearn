@@ -14,10 +14,11 @@ class CreateHashTable extends Migration{
         Schema::create('hash', function(Blueprint $table)
         {
             $table->string('pycid', 8);
-            $table->foreign('pycid')->reference('pycid')->on('users')->onDelete('cascade');
+            #$table->foreign('pycid')->reference('pycid')->on('users')->onDelete('cascade');
             $table->string('hash', 64);
             $table->string('remember_token',100)->nullable();
             $table->timestamps();
+            $table->primary('pycid');
         });
     }
     /**

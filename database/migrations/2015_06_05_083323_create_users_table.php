@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration {
             $table->string('cname', 16);
             $table->char('sex', 1);
             $table->primary('pycid');
+            $table->index(['ename', 'cname']);
         });
     }
     /**
