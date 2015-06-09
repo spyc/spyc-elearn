@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="@yield('lang')">
+<html>
 
 <head>
 
 @section('meta')
     <meta charset="UTF-8">
 @show
-<title>@yield('title')</title>
+<title>@ysection('titile')@show</title>
 @section('stylesheet')
 @show
 

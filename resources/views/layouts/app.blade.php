@@ -1,7 +1,9 @@
 @extends('layouts.bootstrap')
 
-@section('title', 'SPYC Project WHJSLS')
-@section('lang', 'en')@stop
+@section('title')
+    SPYC Project WHJSLS
+@stop
+
 
 @section('meta')
     @parent
