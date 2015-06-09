@@ -3,7 +3,9 @@
 
 <head>
 
-<meta charset="UTF-8">
+@section('meta')
+    <meta charset="UTF-8">
+@show
 <title>@yield('title')</title>
 @section('stylesheet')
 @show
@@ -12,7 +14,16 @@
 
 <body>
 
-@section('body')
+@section('navbar')
+
+@show
+
+@section('wrap')
+
+@show
+
+@section('footer')
+
 @show
 
 @section('scripts')
