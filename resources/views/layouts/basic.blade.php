@@ -6,9 +6,9 @@
 @section('meta')
     <meta charset="UTF-8">
 @show
-<title>@ysection('titile')@show</title>
-@section('stylesheet')
-@show
+
+    <title>@section('title')@show</title>
+@section('stylesheet')@show
 
 </head>
 
@@ -18,16 +18,11 @@
 
 @show
 
-@section('wrap')
+@section('wrap') @show
 
-@show
+@section('footer') @show
 
-@section('footer')
-
-@show
-
-@section('scripts')
-@show
+@section('scripts') @show
 
 </body>
 

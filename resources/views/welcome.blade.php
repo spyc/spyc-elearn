@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        @include('layouts.meta')
+        <!--
         <title>Laravel</title>
 
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
@@ -34,6 +36,7 @@
                 font-size: 96px;
             }
         </style>
+        -->
     </head>
     <body>
         <div class="container">
