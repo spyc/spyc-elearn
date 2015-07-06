@@ -1,4 +1,4 @@
-<?php
+<?hh
 
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +11,46 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [
+        'as' => 'home',
+        'uses' => 'HomeController@index'
+]);
+
+Route::get('env', [
+    'as' => 'about',
+        'uses' => 'HomeController@environment'
+]);
+
+
+Route::resource('bug', 'BugController');
+
+Route::group(['prefix' => 'library'], function()
+{
+    Route::get('/', ['as' => 'library.home', function()
+    {
+        return view('library.home');
+    }]);
+
+    Route::get('/news', [
+        'as' => 'library.news.list',
+        'uses' => 'LibraryController@news'
+    ]);
+
+    Route::get('/news/{id}', [
+        'as' => 'library.news.view',
+        'uses' => 'LibraryController@showNews'
+    ]);
 });
+
+/*
+Route::group(['prefix' => 'ajax'], function()
+{
+    Route::group(['prefix' => 'library'], function ()
+    {
+        Route::get('news', [
+            'as' => 'ajax.library.news.list',
+            'uses' => 'Ajax\LibraryController@listNews'
+        ]);
+    });
+});
+*/
