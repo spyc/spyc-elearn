@@ -27,13 +27,6 @@
                 <ul class="nav navbar-nav">
                     <li></li>
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/account/login') }}">Login</a></li>
-                    @else
-                        <li><a href="{{ url('/account/logout') }}">Logout</a></li>
-                    @endif
-                </ul>
             </div>
         </div>
     </div>

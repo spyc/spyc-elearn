@@ -1,4 +1,4 @@
-<?php
+<?hh //strick
 
 namespace App\Http\Controllers\Auth;
 
@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Response;
 
 
 class AccountController extends Controller {
@@ -15,13 +16,13 @@ class AccountController extends Controller {
      * the model instance
      * @var \App\User
      */
-    protected $user;
+    protected User $user;
     /**
      * The Guard implementation.
      *
      * @var \Illuminate\Contracts\Auth\Guard
      */
-    protected $auth;
+    protected Guard $auth;
 
     /**
      * Create a new authentication controller instance.
@@ -42,7 +43,7 @@ class AccountController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getLogin()
+    public function getLogin() :Response
     {
         return view('account.login');
     }
@@ -53,7 +54,7 @@ class AccountController extends Controller {
      * @param  LoginRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function postRegister(LoginRequest $request)
+    public function postRegister(LoginRequest $request): Response
     {
         if ($this->auth->attempt($request->only('username', 'password'))) {
             $url = '/';
@@ -72,10 +73,20 @@ class AccountController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function getLogout()
+    public function getLogout(): Response
     {
         $this->auth->logout();
 
         return redirect('/');
+    }
+
+    /**
+     * Login Action.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function login(): Response
+    {
+        return $this->getLogin();
     }
 }
