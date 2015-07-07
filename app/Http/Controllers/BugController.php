@@ -27,10 +27,63 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Http\Response;
+use Psy\Util\Json;
+
 class BugController extends Controller
 {
+    const SUGGEST = 'Suggest';
+    const EMERGENCY = 'Emergency';
+    const DANGER = 'Danger';
+    const ERROR = 'Error';
+    const WARNING = 'Warning';
+    const INVALID = 'Invalid';
+
+    const COLOR_SUGGEST = '159818';
+    const COLOR_EMERGENCY = 'FC2929';
+    const COLOR_DANGER = 'EB6420';
+    const COLOR_ERROR = 'FBCA04';
+    const COLOR_WARNING = '0052CC';
+    const COLOR_INVALID = '5319E7';
+
     public function index()
     {
         return view('bug.index');
+    }
+
+    public function create()
+    {
+        return view('bug.create', ['levels' => self::getLevels()]);
+    }
+
+    public static function getLevels()
+    {
+        return [
+            self::ERROR,
+            self::SUGGEST,
+            self::EMERGENCY,
+            self::DANGER,
+            self::WARNING,
+            self::INVALID
+        ];
+    }
+
+    public static function getLevelColors()
+    {
+        return [
+            self::ERROR => self::COLOR_ERROR,
+            self::SUGGEST => self::COLOR_SUGGEST,
+            self::EMERGENCY => self::COLOR_EMERGENCY,
+            self::DANGER => self::COLOR_DANGER,
+            self::WARNING => self::COLOR_WARNING,
+            self::INVALID => self::COLOR_INVALID
+        ];
+    }
+
+    public function colors()
+    {
+        $response = new Response();
+        $response->setContent(Json::encode(self::getLevelColors()));
+        return $response;
     }
 }
