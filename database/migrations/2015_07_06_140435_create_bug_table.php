@@ -14,8 +14,8 @@ class CreateBugTable extends Migration
     {
         Schema::create('bug', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->unsignedInteger('level');
-            $table->string('title', '64')->index();
+            $table->string('level', 16);
+            $table->string('title', 64)->index();
             $table->string('page');
             $table->text('detail')->nullable();
             $table->timestamps();
