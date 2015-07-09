@@ -25,7 +25,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="page">Page Link</label>
             <div class="col-sm-7">
-                <input id="page" name="page" class="form-control" placeholder="Page Link" type="url">
+                <input id="page" name="page" class="form-control" placeholder="Page Link" type="text">
             </div>
         </div>
 
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-7">
                 <button type="submit" class="btn btn-danger">Submit</button>
