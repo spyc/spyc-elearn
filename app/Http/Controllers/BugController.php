@@ -27,7 +27,10 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Requests\BugReportRequest;
+use App\Model\Bug;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Input;
 use Psy\Util\Json;
 
 class BugController extends Controller
@@ -46,16 +49,19 @@ class BugController extends Controller
     const COLOR_WARNING = '0052CC';
     const COLOR_INVALID = '5319E7';
 
-    public function index()
-    {
-        return view('bug.index');
-    }
 
-    public function create()
+    public static function getLevelColors()
     {
-        return view('bug.create', ['levels' => self::getLevels()]);
+        return [
+            self::ERROR => self::COLOR_ERROR,
+            self::SUGGEST => self::COLOR_SUGGEST,
+            self::EMERGENCY => self::COLOR_EMERGENCY,
+            self::DANGER => self::COLOR_DANGER,
+            self::WARNING => self::COLOR_WARNING,
+            self::INVALID => self::COLOR_INVALID
+        ];
     }
-
+    
     public static function getLevels()
     {
         return [
@@ -68,16 +74,29 @@ class BugController extends Controller
         ];
     }
 
-    public static function getLevelColors()
+    public function index()
     {
-        return [
-            self::ERROR => self::COLOR_ERROR,
-            self::SUGGEST => self::COLOR_SUGGEST,
-            self::EMERGENCY => self::COLOR_EMERGENCY,
-            self::DANGER => self::COLOR_DANGER,
-            self::WARNING => self::COLOR_WARNING,
-            self::INVALID => self::COLOR_INVALID
-        ];
+        return view('bug.index');
+    }
+
+    public function create()
+    {
+        return view('bug.create', ['levels' => self::getLevels()]);
+    }
+
+    public function store(BugReportRequest $request)
+    {
+        $form = $request->request;
+        $bug = new Bug();
+
+        $bug->level = $form->get('level');
+        $bug->title = $form->get('title');
+        $bug->page = $form->get('page');
+        $bug->detail = $form->get('detail') ?: 'NULL';
+
+        $bug->save();
+
+        return redirect()->route('bug.list');
     }
 
     public function colors()
