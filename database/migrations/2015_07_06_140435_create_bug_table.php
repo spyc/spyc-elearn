@@ -17,7 +17,7 @@ class CreateBugTable extends Migration
             $table->unsignedInteger('level');
             $table->string('title', '64')->index();
             $table->string('page');
-            $table->text('detail');
+            $table->text('detail')->nullable();
             $table->timestamps();
         });
     }
