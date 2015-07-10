@@ -21,13 +21,13 @@ Route::get('env', [
         'uses' => 'HomeController@environment'
 ]);
 
+Route::get('bug/list', [
+    'as' => 'bug.list',
+    'uses' => 'BugController@all'
+]);
 
 Route::resource('bug', 'BugController');
 
-Route::get('bug/list', [
-    'as' => 'bug.list',
-    'uses' => 'BugController@list'
-]);
 
 Route::group(['prefix' => 'library'], function()
 {
