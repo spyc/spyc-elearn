@@ -105,4 +105,15 @@ class BugController extends Controller
         $response->setContent(Json::encode(self::getLevelColors()));
         return $response;
     }
+
+    public function all()
+    {
+        $bugs = Bug::where('status', 'open')
+            ->orderBy('id', 'desc')
+            ->get()
+        ;
+        $template = ['bugs' => $bugs];
+
+        return view('bug.list', $template);
+    }
 }
