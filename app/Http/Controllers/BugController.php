@@ -27,10 +27,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Exceptions\NotFoundException;
 use App\Http\Requests\BugReportRequest;
 use App\Model\Bug;
+use App\Services\Github\Issue;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Input;
 use Psy\Util\Json;
 
 class BugController extends Controller
@@ -99,13 +100,6 @@ class BugController extends Controller
         return redirect()->route('bug.list');
     }
 
-    public function colors()
-    {
-        $response = new Response();
-        $response->setContent(Json::encode(self::getLevelColors()));
-        return $response;
-    }
-
     public function all()
     {
         $bugs = Bug::where('status', 'open')
@@ -115,5 +109,15 @@ class BugController extends Controller
         $template = ['bugs' => $bugs];
 
         return view('bug.list', $template);
+    }
+
+    public function show($bug)
+    {
+        $template = [];
+
+        $instance = Bug::where(['id' => $bug])->first();
+        $template['bug'] = $instance;
+
+        return view('bug.show', $template);
     }
 }
