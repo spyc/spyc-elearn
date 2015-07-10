@@ -46,3 +46,10 @@
             Logos and trademarks belong to their respective owners.
         </footer>
 @stop
+
+@section('scripts')
+    @parent
+    <script src="/js/jquery.nicescroll.min.js"></script>
+    <script src="/js/markdown.min.js"></script>
+    <script src="/js/ui.js"></script>
+@stop
