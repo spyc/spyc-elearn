@@ -50,19 +50,11 @@ Route::group(['prefix' => 'library'], function()
 
 Route::group(['prefix' => 'ajax'], function()
 {
-    /*Route::group(['prefix' => 'library'], function ()
-    {
-        Route::get('news', [
-            'as' => 'ajax.library.news.list',
-            'uses' => 'Ajax\LibraryController@listNews'
-        ]);
-    });*/
-
     Route::group(['prefix' => 'bug'], function ()
     {
        Route::get('color', [
            'as' => 'ajax.bug.color',
-           'uses' => 'BugController@colors'
+           'uses' => 'Ajax\BugController@colors'
        ]);
     });
 });
