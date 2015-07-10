@@ -17,6 +17,8 @@ class CreateBugTable extends Migration
             $table->string('level', 16);
             $table->string('title', 64)->index();
             $table->string('page');
+            $table->string('status', 8)->default('open');
+            $table->string('git')->nullable();
             $table->text('detail')->nullable();
             $table->timestamps();
         });

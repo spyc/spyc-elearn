@@ -12,6 +12,7 @@ class CreateLibraryNewsTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('library_news', function (Blueprint $table)
         {
             $table->increments('id')->unsigned();
@@ -20,6 +21,7 @@ class CreateLibraryNewsTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
+        */
     }
 
     /**
@@ -29,6 +31,8 @@ class CreateLibraryNewsTable extends Migration
      */
     public function down()
     {
+        /*
         Schema::drop('library_news');
+        */
     }
 }
