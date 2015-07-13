@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html lang="@yield('lang')">
+<html>
 
 <head>
 
-<meta charset="UTF-8">
-<title>@yield('title')</title>
-@section('stylesheet')
+@section('meta')
+    <meta charset="UTF-8">
 @show
+
+    <title>@section('title')@show</title>
+@section('stylesheet')@show
 
 </head>
 
 <body>
 
-@section('body')
+@section('navbar')
+
 @show
 
-@section('scripts')
-@show
+@section('wrap') @show
+
+@section('footer') @show
+
+@section('scripts') @show
 
 </body>
 
