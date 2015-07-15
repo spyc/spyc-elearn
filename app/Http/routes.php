@@ -28,7 +28,7 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
-
+/*
 Route::group(['prefix' => 'library'], function()
 {
     Route::get('/', ['as' => 'library.home', function()
@@ -46,7 +46,7 @@ Route::group(['prefix' => 'library'], function()
         'uses' => 'LibraryController@showNews'
     ]);
 });
-
+*/
 
 Route::group(['prefix' => 'ajax'], function()
 {
