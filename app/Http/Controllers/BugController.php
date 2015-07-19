@@ -42,20 +42,6 @@ use Psy\Util\Json;
  */
 class BugController extends Controller
 {
-    const SUGGEST = 'Suggest';
-    const EMERGENCY = 'Emergency';
-    const DANGER = 'Danger';
-    const ERROR = 'Error';
-    const WARNING = 'Warning';
-    const INVALID = 'Invalid';
-
-    const COLOR_SUGGEST = '159818';
-    const COLOR_EMERGENCY = 'FC2929';
-    const COLOR_DANGER = 'EB6420';
-    const COLOR_ERROR = 'FBCA04';
-    const COLOR_WARNING = '0052CC';
-    const COLOR_INVALID = '5319E7';
-
 
     /**
      * Get the color code of every level
@@ -65,12 +51,12 @@ class BugController extends Controller
     public static function getLevelColors()
     {
         return [
-            self::ERROR => self::COLOR_ERROR,
-            self::SUGGEST => self::COLOR_SUGGEST,
-            self::EMERGENCY => self::COLOR_EMERGENCY,
-            self::DANGER => self::COLOR_DANGER,
-            self::WARNING => self::COLOR_WARNING,
-            self::INVALID => self::COLOR_INVALID
+            Bug::ERROR => Bug::COLOR_ERROR,
+            Bug::SUGGEST => Bug::COLOR_SUGGEST,
+            Bug::EMERGENCY => Bug::COLOR_EMERGENCY,
+            Bug::DANGER => Bug::COLOR_DANGER,
+            Bug::WARNING => Bug::COLOR_WARNING,
+            Bug::INVALID => Bug::COLOR_INVALID
         ];
     }
 
@@ -82,12 +68,12 @@ class BugController extends Controller
     public static function getLevels()
     {
         return [
-            self::ERROR,
-            self::SUGGEST,
-            self::EMERGENCY,
-            self::DANGER,
-            self::WARNING,
-            self::INVALID
+            Bug::ERROR,
+            Bug::SUGGEST,
+            Bug::EMERGENCY,
+            Bug::DANGER,
+            Bug::WARNING,
+            Bug::INVALID
         ];
     }
 
