@@ -27,7 +27,11 @@
 namespace Spyc\Elearn\Test;
 
 
-class HomeControllerTest extends \PHPUnit_Framework_TestCase
+class HomeControllerTest extends \TestCase
 {
-
+    public function testHome()
+    {
+        $this->visit('/')
+            ->see('Open Source in SPYC');
+    }
 }

@@ -26,8 +26,52 @@
 
 namespace Spyc\Elearn\Test;
 
+use App\Model\Bug;
+use App\Http\Controllers\BugController;
 
-class BugControllerTest extends \PHPUnit_Framework_TestCase
+class BugControllerTest extends \TestCase
 {
+    public function testGetLevelColors()
+    {
+        $colors = BugController::getLevelColors();
+        $this->assertSame([
+            Bug::ERROR => Bug::COLOR_ERROR,
+            Bug::SUGGEST => Bug::COLOR_SUGGEST,
+            Bug::EMERGENCY => Bug::COLOR_EMERGENCY,
+            Bug::DANGER => Bug::COLOR_DANGER,
+            Bug::WARNING => Bug::COLOR_WARNING,
+            Bug::INVALID => Bug::COLOR_INVALID
+        ], $colors);
+    }
 
+    public function testLevels()
+    {
+        $level = BugController::getLevels();
+        $this->assertSame([Bug::ERROR,
+            Bug::SUGGEST,
+            Bug::EMERGENCY,
+            Bug::DANGER,
+            Bug::WARNING,
+            Bug::INVALID], $level);
+    }
+
+    public function testIndex()
+    {
+        $this->visit('/bug')
+            ->see('Report us a bug and we make it better');
+        $this->visit('/bug')
+            ->click('View Issue')
+            ->seePageIs('/bug/list');
+        $this->visit('/bug')
+            ->click('Start Report')
+            ->seePageIs('/bug/create');
+    }
+
+    public function testList()
+    {
+        $this->visit('/bug/list')
+            ->see('Issue List')
+            ->click('Test')
+            ->seePageIs('/bug/1');
+    }
 }
