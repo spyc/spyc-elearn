@@ -30,6 +30,9 @@
                 <ul class="nav navbar-nav">
                     <li></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ route('bug.index') }}">Bug Report</a></li>
+                </ul>
             </div>
         </div>
     </div>
