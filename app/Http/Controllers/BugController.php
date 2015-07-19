@@ -34,6 +34,12 @@ use App\Services\Github\Issue;
 use Illuminate\Http\Response;
 use Psy\Util\Json;
 
+/**
+ * Controller for Handle Bug Reporting.
+ *
+ * Class BugController
+ * @package App\Http\Controllers
+ */
 class BugController extends Controller
 {
     const SUGGEST = 'Suggest';
@@ -51,6 +57,11 @@ class BugController extends Controller
     const COLOR_INVALID = '5319E7';
 
 
+    /**
+     * Get the color code of every level
+     *
+     * @return array array<string, string> contains level to color code
+     */
     public static function getLevelColors()
     {
         return [
@@ -62,7 +73,12 @@ class BugController extends Controller
             self::INVALID => self::COLOR_INVALID
         ];
     }
-    
+
+    /**
+     * Get all level of bug.
+     *
+     * @return array array<string> contain all level of error
+     */
     public static function getLevels()
     {
         return [
@@ -75,16 +91,33 @@ class BugController extends Controller
         ];
     }
 
+    /**
+     * Index page of the bug report.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('bug.index');
     }
 
+    /**
+     * Display form for reporting bug.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         return view('bug.create', ['levels' => self::getLevels()]);
     }
 
+    /**
+     * Store the input bug report.
+     *
+     * @param BugReportRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(BugReportRequest $request)
     {
         $form = $request->request;
@@ -100,6 +133,11 @@ class BugController extends Controller
         return redirect()->route('bug.list');
     }
 
+    /**
+     * Display all the bug basic data.
+     *
+     * @return \Illuminate\View\View
+     */
     public function all()
     {
         $bugs = Bug::where('status', 'open')
@@ -111,6 +149,13 @@ class BugController extends Controller
         return view('bug.list', $template);
     }
 
+    /**
+     * Display detail information of the bug with given bug ID.
+     *
+     * @param int $bug Bug ID
+     *
+     * @return \Illuminate\View\View
+     */
     public function show($bug)
     {
         $template = [];
@@ -119,5 +164,19 @@ class BugController extends Controller
         $template['bug'] = $instance;
 
         return view('bug.show', $template);
+    }
+
+    /**
+     * Redirect all the request to bug.show
+     *
+     * @param int $bug Bug ID
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @see BugController#show(int)
+     */
+    public function edit($bug)
+    {
+        return redirect()->route('bug.show', $bug);
     }
 }
