@@ -12,6 +12,14 @@
                 </button>
                 <a class="navbar-brand" href="{{ route('subject.maths.index') }}">Maths</a>
             </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="http://localhost:8080/bug">Bug Report</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 @stop
