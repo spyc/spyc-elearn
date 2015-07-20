@@ -28,6 +28,16 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
+Route::group(['prefix' => 'subject'], function ()
+{
+    Route::group(['prefix' => 'maths'], function()
+    {
+        Route::get('/', [
+            'as' => 'subject.maths.index',
+            'uses' => 'Subject\Maths\MathsController@index'
+        ]);
+    });
+});
 
 Route::group(['prefix' => 'ajax'], function()
 {
