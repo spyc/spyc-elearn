@@ -1,0 +1,13 @@
+@media (min-width: 992px) {
+    .jumbotron {
+        background-image: url("../../images/library/banner.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 120px;
+        margin-top: 51px;
+    }
+
+    .jumbotron .container {
+        margin-left: 20%;
+    }
+}
