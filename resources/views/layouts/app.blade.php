@@ -11,7 +11,7 @@
 
 @section('stylesheet')
     @parent
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/css/style.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 @section('navbar')
@@ -52,7 +52,7 @@
 
 @section('scripts')
     @parent
-    <script src="/js/jquery.nicescroll.min.js"></script>
-    <script src="/js/markdown.min.js"></script>
-    <script src="/js/ui.js"></script>
+    <script src="{{ url('/js/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ url('/js/markdown.min.js') }}"></script>
+    <script src="{{ url('/js/ui.js') }}"></script>
 @stop
