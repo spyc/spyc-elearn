@@ -36,8 +36,23 @@ Route::group(['prefix' => 'subject'], function ()
             'as' => 'subject.maths.index',
             'uses' => 'Subject\Maths\MathsController@index'
         ]);
+
+        Route::get('about',[
+            'as' => 'subject.maths.about',
+            'uses' => 'Subject\Maths\MathsController@about'
+        ]);
     });
 });
+
+
+Route::group(['prefix' => 'auth'], function()
+{
+    Route::get('login', [
+       'uses' => 'Auth\AuthController@getLogin',
+        'as' => 'auth.login'
+    ]);
+});
+
 
 Route::group(['prefix' => 'ajax'], function()
 {

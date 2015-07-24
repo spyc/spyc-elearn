@@ -28,11 +28,28 @@ namespace App\Http\Controllers\Subject\Maths;
 
 
 use App\Http\Controllers\Controller;
+use App\Model\User;
+use Illuminate\Http\JsonResponse;
+use Psy\Util\Json;
 
 class MathsController extends Controller
 {
     public function index()
     {
         return view('subject.maths.index');
+    }
+
+    public function about()
+    {
+        $users = User::select(['user.name', 'committee.post'])
+            ->join('committee', 'user.pycid', '=', 'committee.pycid')
+            ->join('community', 'community.id', '=', 'committee.community')
+            ->where('community.name', '=', 'Maths')
+            ->get()
+        ;
+
+        $template = ['committee' => $users];
+
+        return view('subject.maths.about', $template);
     }
 }

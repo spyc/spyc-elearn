@@ -28,7 +28,7 @@ namespace App\Http\Controllers\Ajax;
 
 use App\Http\Controllers\BugController as Base;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 use Psy\Util\Json;
 
 class BugController extends Controller
@@ -36,7 +36,7 @@ class BugController extends Controller
 
     public function colors()
     {
-        $response = new Response();
+        $response = new JsonResponse();
         $response->setContent(Json::encode(Base::getLevelColors()));
         return $response;
     }
