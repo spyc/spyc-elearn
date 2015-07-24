@@ -24,21 +24,20 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace App\Http\Controllers\Ajax;
+namespace Spyc\Elearn\Test\Service\Github;
 
-use App\Http\Controllers\BugController as Base;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
-use Psy\Util\Json;
 
-class BugController extends Controller
+use App\Services\Github\Issue;
+
+class IssueTest extends \TestCase
 {
 
-    public function colors()
+    public function testConstruct()
     {
-        $response = new JsonResponse();
-        $response->setContent(Json::encode(Base::getLevelColors()));
-        return $response;
+        if(!env('REMOTE'))
+            return;
+        $issue = new Issue('opensourcehk', '2015.opensource.hk', 14);
+        $this->assertInstanceOf('App\Services\Github\Issue', $issue);
     }
-
+    
 }

@@ -16,6 +16,11 @@ class HomeController extends Controller {
 		return view('home');
 	}
 
+	/**
+     * Display development environment.
+     *
+	 * @return \Illuminate\View\View
+	 */
     public function environment()
     {
         return view('environment');

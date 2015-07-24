@@ -24,21 +24,15 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace App\Http\Controllers\Ajax;
+namespace Spyc\Elearn\Test\Subject;
 
-use App\Http\Controllers\BugController as Base;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
-use Psy\Util\Json;
 
-class BugController extends Controller
+class MathsControllerTest extends \TestCase
 {
-
-    public function colors()
+    public function testIndex()
     {
-        $response = new JsonResponse();
-        $response->setContent(Json::encode(Base::getLevelColors()));
-        return $response;
+        $this->visit('/subject/maths')
+            ->see('Maths Website')
+            ->dontSee('Open Source in SPYC');
     }
-
 }

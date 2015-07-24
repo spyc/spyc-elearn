@@ -7,12 +7,13 @@
 @stop
 
 @section('stylesheet')
-	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+	<link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url('/css/bootstrap-theme.min.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url('/css/font-awesome.min.css') }}" type="text/css">
 @stop
 
 @section('scripts')
-	<script src="/js/jquery.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
+	<script src="{{ url('/js/jquery.min.js') }}"></script>
+	<script src="{{ url('js/bootstrap.min.js') }}"></script>
 @stop
 

@@ -28,25 +28,31 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
-/*
-Route::group(['prefix' => 'library'], function()
+Route::group(['prefix' => 'subject'], function ()
 {
-    Route::get('/', ['as' => 'library.home', function()
+    Route::group(['prefix' => 'maths'], function()
     {
-        return view('library.home');
-    }]);
+        Route::get('/', [
+            'as' => 'subject.maths.index',
+            'uses' => 'Subject\Maths\MathsController@index'
+        ]);
 
-    Route::get('/news', [
-        'as' => 'library.news.list',
-        'uses' => 'LibraryController@news'
-    ]);
+        Route::get('about',[
+            'as' => 'subject.maths.about',
+            'uses' => 'Subject\Maths\MathsController@about'
+        ]);
+    });
+});
 
-    Route::get('/news/{id}', [
-        'as' => 'library.news.view',
-        'uses' => 'LibraryController@showNews'
+
+Route::group(['prefix' => 'auth'], function()
+{
+    Route::get('login', [
+       'uses' => 'Auth\AuthController@getLogin',
+        'as' => 'auth.login'
     ]);
 });
-*/
+
 
 Route::group(['prefix' => 'ajax'], function()
 {

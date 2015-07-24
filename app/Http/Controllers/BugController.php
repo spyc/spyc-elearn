@@ -34,57 +34,76 @@ use App\Services\Github\Issue;
 use Illuminate\Http\Response;
 use Psy\Util\Json;
 
+/**
+ * Controller for Handle Bug Reporting.
+ *
+ * Class BugController
+ * @package App\Http\Controllers
+ */
 class BugController extends Controller
 {
-    const SUGGEST = 'Suggest';
-    const EMERGENCY = 'Emergency';
-    const DANGER = 'Danger';
-    const ERROR = 'Error';
-    const WARNING = 'Warning';
-    const INVALID = 'Invalid';
 
-    const COLOR_SUGGEST = '159818';
-    const COLOR_EMERGENCY = 'FC2929';
-    const COLOR_DANGER = 'EB6420';
-    const COLOR_ERROR = 'FBCA04';
-    const COLOR_WARNING = '0052CC';
-    const COLOR_INVALID = '5319E7';
-
-
+    /**
+     * Get the color code of every level
+     *
+     * @return array array<string, string> contains level to color code
+     */
     public static function getLevelColors()
     {
         return [
-            self::ERROR => self::COLOR_ERROR,
-            self::SUGGEST => self::COLOR_SUGGEST,
-            self::EMERGENCY => self::COLOR_EMERGENCY,
-            self::DANGER => self::COLOR_DANGER,
-            self::WARNING => self::COLOR_WARNING,
-            self::INVALID => self::COLOR_INVALID
-        ];
-    }
-    
-    public static function getLevels()
-    {
-        return [
-            self::ERROR,
-            self::SUGGEST,
-            self::EMERGENCY,
-            self::DANGER,
-            self::WARNING,
-            self::INVALID
+            Bug::ERROR => Bug::COLOR_ERROR,
+            Bug::SUGGEST => Bug::COLOR_SUGGEST,
+            Bug::EMERGENCY => Bug::COLOR_EMERGENCY,
+            Bug::DANGER => Bug::COLOR_DANGER,
+            Bug::WARNING => Bug::COLOR_WARNING,
+            Bug::INVALID => Bug::COLOR_INVALID
         ];
     }
 
+    /**
+     * Get all level of bug.
+     *
+     * @return array array<string> contain all level of error
+     */
+    public static function getLevels()
+    {
+        return [
+            Bug::ERROR,
+            Bug::SUGGEST,
+            Bug::EMERGENCY,
+            Bug::DANGER,
+            Bug::WARNING,
+            Bug::INVALID
+        ];
+    }
+
+    /**
+     * Index page of the bug report.
+     *
+     * @return \Illuminate\View\View
+     */
     public function index()
     {
         return view('bug.index');
     }
 
+    /**
+     * Display form for reporting bug.
+     *
+     * @return \Illuminate\View\View
+     */
     public function create()
     {
         return view('bug.create', ['levels' => self::getLevels()]);
     }
 
+    /**
+     * Store the input bug report.
+     *
+     * @param BugReportRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(BugReportRequest $request)
     {
         $form = $request->request;
@@ -100,6 +119,11 @@ class BugController extends Controller
         return redirect()->route('bug.list');
     }
 
+    /**
+     * Display all the bug basic data.
+     *
+     * @return \Illuminate\View\View
+     */
     public function all()
     {
         $bugs = Bug::where('status', 'open')
@@ -111,6 +135,13 @@ class BugController extends Controller
         return view('bug.list', $template);
     }
 
+    /**
+     * Display detail information of the bug with given bug ID.
+     *
+     * @param int $bug Bug ID
+     *
+     * @return \Illuminate\View\View
+     */
     public function show($bug)
     {
         $template = [];
@@ -119,5 +150,19 @@ class BugController extends Controller
         $template['bug'] = $instance;
 
         return view('bug.show', $template);
+    }
+
+    /**
+     * Redirect all the request to bug.show
+     *
+     * @param int $bug Bug ID
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @see BugController#show(int)
+     */
+    public function edit($bug)
+    {
+        return redirect()->route('bug.show', $bug);
     }
 }

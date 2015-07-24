@@ -34,6 +34,14 @@ class AuthController extends Controller
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getLogin()
+    {
+        return view('account.login');
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -42,8 +50,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:8',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -56,10 +63,6 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        return null;
     }
 }

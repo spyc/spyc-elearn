@@ -24,21 +24,32 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace App\Http\Controllers\Ajax;
+namespace App\Http\Controllers\Subject\Maths;
 
-use App\Http\Controllers\BugController as Base;
+
 use App\Http\Controllers\Controller;
+use App\Model\User;
 use Illuminate\Http\JsonResponse;
 use Psy\Util\Json;
 
-class BugController extends Controller
+class MathsController extends Controller
 {
-
-    public function colors()
+    public function index()
     {
-        $response = new JsonResponse();
-        $response->setContent(Json::encode(Base::getLevelColors()));
-        return $response;
+        return view('subject.maths.index');
     }
 
+    public function about()
+    {
+        $users = User::select(['user.name', 'committee.post'])
+            ->join('committee', 'user.pycid', '=', 'committee.pycid')
+            ->join('community', 'community.id', '=', 'committee.community')
+            ->where('community.name', '=', 'Maths')
+            ->get()
+        ;
+
+        $template = ['committee' => $users];
+
+        return view('subject.maths.about', $template);
+    }
 }
