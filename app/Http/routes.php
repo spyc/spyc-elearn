@@ -30,6 +30,11 @@ Route::resource('bug', 'BugController');
 
 Route::group(['prefix' => 'subject'], function ()
 {
+    Route::get('/', function ()
+    {
+        return view('subject.index');
+    });
+
     Route::group(['prefix' => 'maths'], function()
     {
         Route::get('/', [
@@ -45,13 +50,9 @@ Route::group(['prefix' => 'subject'], function ()
 });
 
 
-Route::group(['prefix' => 'auth'], function()
-{
-    Route::get('login', [
-       'uses' => 'Auth\AuthController@getLogin',
-        'as' => 'auth.login'
-    ]);
-});
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 
 Route::group(['prefix' => 'ajax'], function()
