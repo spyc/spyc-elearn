@@ -32,4 +32,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->setKeyName('pycid');
+    }
 }
