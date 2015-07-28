@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        {!! csrf_field() !!}
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-7">
                 <button type="submit" class="btn btn-danger">Submit</button>
