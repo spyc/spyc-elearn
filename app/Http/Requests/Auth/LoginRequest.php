@@ -12,7 +12,7 @@ class LoginRequest extends FormRequest {
     public function rules()
     {
         return [
-            'username' => 'required',
+            'pycid' => 'required',
             'password' => 'required',
         ];
     }
