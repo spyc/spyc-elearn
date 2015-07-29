@@ -27,18 +27,15 @@
 namespace Spyc\Elearn\Test\Subject;
 
 
-class MathsControllerTest extends \TestCase
+class BasicTest extends \TestCase
 {
+
     public function testIndex()
     {
-        $this->visit('/subject/maths')
-            ->see('Maths Website')
-            ->dontSee('Open Source in SPYC');
+        $this->visit('/subject')
+            ->see('Subject Website')
+            ->click('Maths')
+            ->seePageIs('/subject/maths');
     }
 
-    public function testAbout()
-    {
-        $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
-    }
 }
