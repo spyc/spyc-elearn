@@ -28,27 +28,6 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
-Route::group(['prefix' => 'subject'], function ()
-{
-    Route::get('/', function ()
-    {
-        return view('subject.index');
-    });
-
-    Route::group(['prefix' => 'maths'], function()
-    {
-        Route::get('/', [
-            'as' => 'subject.maths.index',
-            'uses' => 'Subject\Maths\MathsController@index'
-        ]);
-
-        Route::get('about',[
-            'as' => 'subject.maths.about',
-            'uses' => 'Subject\Maths\MathsController@about'
-        ]);
-    });
-});
-
 Route::group(['prefix' => 'auth'], function()
 {
     Route::get('login', [
