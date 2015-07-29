@@ -8,6 +8,8 @@
         });
     }
 
+    $('html').niceScroll();
+
     $('[data-markdown-translate]').each(function (){
         $(this).html(markdown.toHTML($(this).html().trim()));
     });

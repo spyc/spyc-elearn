@@ -14,10 +14,10 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li></li>
+                    <li><a href="{{ route('subject.maths.about') }}">About Us</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="http://localhost:8080/bug">Bug Report</a></li>
+                    <li><a href="{{ route('bug.index') }}">Bug Report</a></li>
                 </ul>
             </div>
         </div>

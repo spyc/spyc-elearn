@@ -34,4 +34,10 @@ class HomeControllerTest extends \TestCase
         $this->visit('/')
             ->see('Open Source in SPYC');
     }
+
+    public function testEnv()
+    {
+        $this->visit('/env')
+            ->see('Ubuntu');
+    }
 }

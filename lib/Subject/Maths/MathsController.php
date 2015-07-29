@@ -24,21 +24,32 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Spyc\Elearn\Test\Subject;
+namespace Elearn\Subject\Maths;
 
 
-class MathsControllerTest extends \TestCase
+use App\Http\Controllers\Controller;
+use App\Model\User;
+use Illuminate\Http\JsonResponse;
+use Psy\Util\Json;
+
+class MathsController extends Controller
 {
-    public function testIndex()
+    public function index()
     {
-        $this->visit('/subject/maths')
-            ->see('Maths Website')
-            ->dontSee('Open Source in SPYC');
+        return view('subject::maths.index');
     }
 
-    public function testAbout()
+    public function about()
     {
-        $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
+        $users = User::select(['user.name', 'committee.post'])
+            ->join('committee', 'user.pycid', '=', 'committee.pycid')
+            ->join('community', 'community.id', '=', 'committee.community')
+            ->where('community.name', '=', 'Maths')
+            ->get()
+        ;
+
+        $template = ['committee' => $users];
+
+        return view('subject::maths.about', $template);
     }
 }

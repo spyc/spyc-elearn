@@ -18,7 +18,7 @@ Route::get('/', [
 
 Route::get('env', [
     'as' => 'about',
-        'uses' => 'HomeController@environment'
+    'uses' => 'HomeController@environment'
 ]);
 
 Route::get('bug/list', [
@@ -28,31 +28,20 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
-Route::group(['prefix' => 'subject'], function ()
-{
-    Route::group(['prefix' => 'maths'], function()
-    {
-        Route::get('/', [
-            'as' => 'subject.maths.index',
-            'uses' => 'Subject\Maths\MathsController@index'
-        ]);
-
-        Route::get('about',[
-            'as' => 'subject.maths.about',
-            'uses' => 'Subject\Maths\MathsController@about'
-        ]);
-    });
-});
-
-
 Route::group(['prefix' => 'auth'], function()
 {
     Route::get('login', [
-       'uses' => 'Auth\AuthController@getLogin',
-        'as' => 'auth.login'
+        'as' => 'auth.login',
+        'uses' => 'Auth\AuthController@getLogin'
+    ]);
+
+    Route::post('login', 'Auth\AuthController@postLogin');
+
+    Route::get('logout', [
+        'as' => 'auth.logout',
+        'uses' => 'Auth\AuthController@getLogout'
     ]);
 });
-
 
 Route::group(['prefix' => 'ajax'], function()
 {

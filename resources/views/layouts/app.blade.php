@@ -32,6 +32,12 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ route('bug.index') }}">Bug Report</a></li>
+                    @if(Auth::check())
+                        <p class="navbar-text navbar-left">{{ Auth::user()->name }}</p>
+                        <li><a href="{{ route('auth.logout') }}">Logout</a></li>
+                    @else
+                        <li><a href="{{ route('auth.login') }}">Login</a></li>
+                    @endif
                 </ul>
             </div>
         </div>
@@ -42,7 +48,7 @@
         <footer class="container">
             <hr>
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/hk/">
-                <img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/hk/88x31.png">
+                <img alt="Creative Commons Licence" style="border-width:0" src="https://licensebuttons.net/l/by-sa/3.0/hk/88x31.png">
             </a>
             This work is licensed under a
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/hk/">Creative Commons Attribution-ShareAlike 3.0 Hong Kong License</a>.

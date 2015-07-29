@@ -1,4 +1,5 @@
 <?php
+
 /**
  * elearn
  *
@@ -24,21 +25,15 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Spyc\Elearn\Test\Subject;
+namespace Spyc\Elearn\Test;
 
+use App\Http\Controllers\Auth\AuthController;
 
-class MathsControllerTest extends \TestCase
+class AuthControllerTest extends \TestCase
 {
-    public function testIndex()
-    {
-        $this->visit('/subject/maths')
-            ->see('Maths Website')
-            ->dontSee('Open Source in SPYC');
-    }
 
-    public function testAbout()
+    public function testLogin()
     {
-        $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
+        $this->visit('/auth/login')->see('Please Sign in');
     }
 }

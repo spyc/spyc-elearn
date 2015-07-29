@@ -106,13 +106,12 @@ class BugController extends Controller
      */
     public function store(BugReportRequest $request)
     {
-        $form = $request->request;
         $bug = new Bug();
 
-        $bug->level = $form->get('level');
-        $bug->title = $form->get('title');
-        $bug->page = $form->get('page');
-        $bug->detail = $form->get('detail') ?: 'NULL';
+        $bug->level = $request->input('level');
+        $bug->title = $request->input('title');
+        $bug->page = $request->input('page');
+        $bug->detail = $request->input('detail', 'NULL');
 
         $bug->save();
 
@@ -126,7 +125,8 @@ class BugController extends Controller
      */
     public function all()
     {
-        $bugs = Bug::where('status', 'open')
+        $bugs = Bug::select('level', 'id', 'title', 'created_at')
+            ->where('status', 'open')
             ->orderBy('id', 'desc')
             ->get()
         ;

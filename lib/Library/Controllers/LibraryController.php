@@ -24,21 +24,16 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Spyc\Elearn\Test\Subject;
+namespace Elearn\Library\Controllers;
 
+use App\Http\Controllers\Controller;
 
-class MathsControllerTest extends \TestCase
+class LibraryController extends Controller
 {
-    public function testIndex()
+
+    public function index()
     {
-        $this->visit('/subject/maths')
-            ->see('Maths Website')
-            ->dontSee('Open Source in SPYC');
+        return view('library::index');
     }
 
-    public function testAbout()
-    {
-        $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
-    }
 }

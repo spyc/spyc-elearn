@@ -24,32 +24,23 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace App\Http\Controllers\Subject\Maths;
-
-
-use App\Http\Controllers\Controller;
-use App\Model\User;
-use Illuminate\Http\JsonResponse;
-use Psy\Util\Json;
-
-class MathsController extends Controller
+Route::group(['prefix' => 'subject'], function ()
 {
-    public function index()
+    Route::get('/', function ()
     {
-        return view('subject.maths.index');
-    }
+        return view('subject::index');
+    });
 
-    public function about()
+    Route::group(['prefix' => 'maths'], function()
     {
-        $users = User::select(['user.name', 'committee.post'])
-            ->join('committee', 'user.pycid', '=', 'committee.pycid')
-            ->join('community', 'community.id', '=', 'committee.community')
-            ->where('community.name', '=', 'Maths')
-            ->get()
-        ;
+        Route::get('/', [
+            'as' => 'subject.maths.index',
+            'uses' => 'Elearn\Subject\Maths\MathsController@index'
+        ]);
 
-        $template = ['committee' => $users];
-
-        return view('subject.maths.about', $template);
-    }
-}
+        Route::get('about',[
+            'as' => 'subject.maths.about',
+            'uses' => 'Elearn\Subject\Maths\MathsController@about'
+        ]);
+    });
+});

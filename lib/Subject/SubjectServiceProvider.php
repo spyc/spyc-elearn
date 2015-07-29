@@ -24,21 +24,29 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Spyc\Elearn\Test\Subject;
+namespace Elearn\Subject;
 
 
-class MathsControllerTest extends \TestCase
+use Illuminate\Support\ServiceProvider;
+
+class SubjectServiceProvider extends ServiceProvider
 {
-    public function testIndex()
+    public function boot()
     {
-        $this->visit('/subject/maths')
-            ->see('Maths Website')
-            ->dontSee('Open Source in SPYC');
+        if (!$this->app->routesAreCached()) {
+            require __DIR__ . '/routes.php';
+        }
+        $this->loadViewsFrom(__DIR__ . '/views', 'subject');
+        $this->publishes([
+            __DIR__ . '/views' =>  base_path('resources/views/vendor/subject'),
+            __DIR__ . '/static/css' => base_path('public/css/subject'),
+            __DIR__ . '/static/js' => base_path('public/js/subject'),
+            __DIR__ . '/static/images' => base_path('public/images/subject')
+        ]);
     }
 
-    public function testAbout()
+    public function register()
     {
-        $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
     }
+
 }

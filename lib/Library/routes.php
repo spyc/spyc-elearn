@@ -24,21 +24,10 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Spyc\Elearn\Test\Subject;
-
-
-class MathsControllerTest extends \TestCase
+Route::group(['prefix' => 'library'], function()
 {
-    public function testIndex()
-    {
-        $this->visit('/subject/maths')
-            ->see('Maths Website')
-            ->dontSee('Open Source in SPYC');
-    }
-
-    public function testAbout()
-    {
-        $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
-    }
-}
+    Route::get('/', [
+        'as' => 'library.home',
+        'uses' => 'Elearn\Library\Controllers\LibraryController@index'
+    ]);
+});
