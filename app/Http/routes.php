@@ -18,7 +18,7 @@ Route::get('/', [
 
 Route::get('env', [
     'as' => 'about',
-        'uses' => 'HomeController@environment'
+    'uses' => 'HomeController@environment'
 ]);
 
 Route::get('bug/list', [
@@ -49,11 +49,20 @@ Route::group(['prefix' => 'subject'], function ()
     });
 });
 
+Route::group(['prefix' => 'auth'], function()
+{
+    Route::get('login', [
+        'as' => 'auth.login',
+        'uses' => 'Auth\AuthController@getLogin'
+    ]);
 
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+    Route::post('login', 'Auth\AuthController@postLogin');
 
+    Route::get('logout', [
+        'as' => 'auth.logout',
+        'uses' => 'Auth\AuthController@getLogout'
+    ]);
+});
 
 Route::group(['prefix' => 'ajax'], function()
 {
