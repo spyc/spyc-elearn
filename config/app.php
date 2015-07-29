@@ -146,6 +146,9 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+		'Elearn\Subject\SubjectServiceProvider',
+        'Elearn\Library\LibraryServiceProvider'
+
 	],
 
 	/*
