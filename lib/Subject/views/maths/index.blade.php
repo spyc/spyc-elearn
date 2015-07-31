@@ -1,4 +1,4 @@
-@extends('template/maths')
+@extends('subject::template.maths')
 
 @section('wrap')
 <div class="jumbotron">

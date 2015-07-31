@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('navbar')
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">

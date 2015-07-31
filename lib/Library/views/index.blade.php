@@ -1,4 +1,4 @@
-@extends('template/library')
+@extends('library::template')
 
 @section('wrap')
     <div class="jumbotron dark-sections" id="introjumbo">
