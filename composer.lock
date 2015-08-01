@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f8002ed86cb9922ca6b06d377ea764f6",
+    "hash": "29ada972da9dcfb8a970544f0be9ba85",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -2056,6 +2056,47 @@
             "time": "2015-08-01 06:53:36"
         },
         {
+            "name": "spyc/elearn-subject",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spyc/elearn-subject.git",
+                "reference": "7c62f43a3f9da19c7a6078ee5ecf44bcee1052f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spyc/elearn-subject/zipball/7c62f43a3f9da19c7a6078ee5ecf44bcee1052f1",
+                "reference": "7c62f43a3f9da19c7a6078ee5ecf44bcee1052f1",
+                "shasum": ""
+            },
+            "require": {
+                "hhvm": "~3.6",
+                "illuminate/contracts": "5.1.*",
+                "illuminate/routing": "5.1.*",
+                "illuminate/support": "5.1.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elearn\\Subject\\": "src"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The SPYC Subject package.",
+            "support": {
+                "source": "https://github.com/spyc/elearn-subject/tree/master",
+                "issues": "https://github.com/spyc/elearn-subject/issues"
+            },
+            "time": "2015-08-01 07:24:42"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "v5.4.1",
             "source": {
@@ -3186,7 +3227,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "spyc/elearn-library": 20
+        "spyc/elearn-library": 20,
+        "spyc/elearn-subject": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

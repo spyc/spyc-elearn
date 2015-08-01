@@ -146,7 +146,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
-		'Elearn\Subject\SubjectServiceProvider',
+		\Elearn\Subject\Provider\SubjectServiceProvider::class,
         \Elearn\Library\Provider\LibraryServiceProvider::class
 
 	],
