@@ -147,7 +147,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 
 		'Elearn\Subject\SubjectServiceProvider',
-        'Elearn\Library\LibraryServiceProvider'
+        \Elearn\Library\Provider\LibraryServiceProvider::class
 
 	],
 
