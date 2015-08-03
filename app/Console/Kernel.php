@@ -14,7 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \App\Console\Commands\Inspire::class,
-        \App\Commands\SessionClearCommand::class
+        \App\Commands\Session\SessionClearCommand::class,
+        \App\Commands\Log\LogDisplayCommand::class
     ];
 
     /**

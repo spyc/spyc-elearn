@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Commands;
+namespace App\Commands\Session;
 
+use App\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Filesystem\Filesystem;
 
