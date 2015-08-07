@@ -27,8 +27,18 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    /**
+     * Login Success Path
+     *
+     * @var string
+     */
     protected $redirectPath = '/';
 
+    /**
+     * Login Path
+     *
+     * @var string
+     */
     protected $loginPath = '/auth/login';
 
     protected $username = 'pycid';
