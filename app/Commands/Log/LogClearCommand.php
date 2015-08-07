@@ -24,29 +24,50 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Elearn\Subject;
+namespace App\Commands\Log;
 
 
-use Illuminate\Support\ServiceProvider;
+use App\Commands\Command;
+use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Filesystem\Filesystem;
 
-class SubjectServiceProvider extends ServiceProvider
+class LogClearCommand extends Command implements SelfHandling
 {
-    public function boot()
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'log:clear';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Remove Log';
+
+    /**
+     * The filesystem instance.
+     *
+     * @var Filesystem
+     */
+    protected $files;
+
+    public function __construct(Filesystem $files)
     {
-        if (!$this->app->routesAreCached()) {
-            require __DIR__ . '/routes.php';
+        parent::__construct();
+        $this->files = $files;
+    }
+
+    public function handle()
+    {
+        $logs = $this->files->glob(storage_path('logs'));
+
+        foreach ($logs as $log) {
+            $this->files->delete($log);
         }
-        $this->loadViewsFrom(__DIR__ . '/views', 'subject');
-        $this->publishes([
-            __DIR__ . '/views' =>  base_path('resources/views/vendor/subject'),
-            __DIR__ . '/static/css' => base_path('public/css/subject'),
-            __DIR__ . '/static/js' => base_path('public/js/subject'),
-            __DIR__ . '/static/images' => base_path('public/images/subject')
-        ]);
-    }
 
-    public function register()
-    {
+        $this->info('Clear Log Success!');
     }
-
 }

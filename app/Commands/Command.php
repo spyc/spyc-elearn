@@ -1,6 +1,8 @@
 <?php namespace App\Commands;
 
-abstract class Command {
+use Illuminate\Console\Command as ConsoleCommand;
+
+abstract class Command extends ConsoleCommand {
 
 	//
 

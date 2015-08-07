@@ -24,23 +24,14 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-Route::group(['prefix' => 'subject'], function ()
+namespace Library;
+
+
+class LibraryControllerTest extends \TestCase
 {
-    Route::get('/', function ()
+    public function testIndex()
     {
-        return view('subject::index');
-    });
-
-    Route::group(['prefix' => 'maths'], function()
-    {
-        Route::get('/', [
-            'as' => 'subject.maths.index',
-            'uses' => 'Elearn\Subject\Maths\MathsController@index'
-        ]);
-
-        Route::get('about',[
-            'as' => 'subject.maths.about',
-            'uses' => 'Elearn\Subject\Maths\MathsController@about'
-        ]);
-    });
-});
+        $this->visit('/library')
+            ->see('Knowledge is the food of the soul.');
+    }
+}

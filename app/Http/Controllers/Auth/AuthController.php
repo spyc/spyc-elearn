@@ -27,8 +27,18 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
+    /**
+     * Login Success Path
+     *
+     * @var string
+     */
     protected $redirectPath = '/';
 
+    /**
+     * Login Path
+     *
+     * @var string
+     */
     protected $loginPath = '/auth/login';
 
     protected $username = 'pycid';
@@ -36,7 +46,6 @@ class AuthController extends Controller
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -76,7 +85,8 @@ class AuthController extends Controller
     {
 
         $this->validate($request, [
-            $this->loginUsername() => 'required', 'password' => 'required',
+            $this->loginUsername() => 'required',
+            'password' => 'required',
         ]);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
