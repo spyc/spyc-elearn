@@ -11,6 +11,14 @@
 |
 */
 
+if (env('APP_DEBUG')) {
+    Route::group(['prefix' => 'debug'], function () {
+        Route::get('session', function (\Illuminate\Http\Request $request) {
+            dd($request->session());
+        });
+    });
+}
+
 Route::get('/', [
         'as' => 'home',
         'uses' => 'HomeController@index'
@@ -41,15 +49,4 @@ Route::group(['prefix' => 'auth'], function()
         'as' => 'auth.logout',
         'uses' => 'Auth\AuthController@getLogout'
     ]);
-});
-
-Route::group(['prefix' => 'ajax'], function()
-{
-    Route::group(['prefix' => 'bug'], function ()
-    {
-       Route::get('color', [
-           'as' => 'ajax.bug.color',
-           'uses' => 'Ajax\BugController@colors'
-       ]);
-    });
 });
