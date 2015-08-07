@@ -147,6 +147,11 @@ class BugController extends Controller
         $template = [];
 
         $instance = Bug::where(['id' => $bug])->first();
+
+        if (null === $instance) {
+            return redirect()->route('bug.list');
+        }
+
         $template['bug'] = $instance;
 
         return view('bug.show', $template);
