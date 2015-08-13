@@ -7,6 +7,7 @@
 @stop
 
 @section('stylesheet')
+    <link rel="stylesheet" href="{{ url('/css/normalize.min.css') }}" type="text/css">
 	<link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}" type="text/css">
 	<link rel="stylesheet" href="{{ url('/css/bootstrap-theme.min.css') }}" type="text/css">
 	<link rel="stylesheet" href="{{ url('/css/font-awesome.min.css') }}" type="text/css">
