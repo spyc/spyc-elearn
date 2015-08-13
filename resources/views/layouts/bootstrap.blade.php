@@ -16,7 +16,11 @@
 @section('scripts')
 	<script src="{{ url('/js/jquery.min.js') }}"></script>
 	<script src="{{ url('/js/bootstrap.min.js') }}"></script>
+    @if(env('APP_DEBUG'))
 	<script src="{{ url('/js/react/react-dev.min.js') }}"></script>
+    @else
+    <script src="{{ url('/js/react/react.min.js') }}"></script>
+    @endif
 	<script src="{{ url('/js/react/marked.min.js') }}"></script>
 @stop
 
