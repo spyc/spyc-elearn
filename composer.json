@@ -7,6 +7,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/spyc/elearn-subject"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/spyc/elearn-model"
     }
   ],
   "require": {
@@ -15,7 +19,8 @@
     "guzzlehttp/guzzle": "~6.0",
     "phpunit/phpunit": "~4.0",
     "spyc/elearn-library": "dev-master",
-    "spyc/elearn-subject": "dev-master"
+    "spyc/elearn-subject": "dev-master",
+    "spyc/elearn-model": "dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",
