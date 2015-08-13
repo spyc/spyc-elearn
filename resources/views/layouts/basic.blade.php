@@ -20,7 +20,9 @@
 
 @section('wrap') @show
 
-@section('footer') @show
+@section('footer')
+<footer></footer>
+@show
 
 @section('scripts') @show
 

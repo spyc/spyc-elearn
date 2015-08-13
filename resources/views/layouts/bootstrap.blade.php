@@ -14,6 +14,8 @@
 
 @section('scripts')
 	<script src="{{ url('/js/jquery.min.js') }}"></script>
-	<script src="{{ url('js/bootstrap.min.js') }}"></script>
+	<script src="{{ url('/js/bootstrap.min.js') }}"></script>
+	<script src="{{ url('/js/react/react-dev.min.js') }}"></script>
+	<script src="{{ url('/js/react/marked.min.js') }}"></script>
 @stop
 
