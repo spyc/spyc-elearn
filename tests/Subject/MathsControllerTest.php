@@ -39,6 +39,6 @@ class MathsControllerTest extends \TestCase
     public function testAbout()
     {
         $this->visit('/subject/maths/about')
-            ->see('Tony Yip');
+            ->see('Maths Club Committee');
     }
 }

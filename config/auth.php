@@ -28,7 +28,7 @@ return [
 	|
 	*/
 
-	'model' => App\Model\User::class,
+	'model' => \Elearn\Model\User::class,
 
 	/*
 	|--------------------------------------------------------------------------
