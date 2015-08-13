@@ -26,5 +26,5 @@
 
 @section('scripts')
     @parent
-    <script src="/js/bug/list.js"></script>
+    <script src="{{ url('/js/react/bug/list.js') }}"></script>
 @stop
