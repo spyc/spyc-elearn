@@ -6,7 +6,7 @@
 		$(this).css('background-color', '#' + color);
 	}
 	
-	$.getJSON('/ajax/bug/color', function (data) {
+	$.getJSON('/api/bug/level', function (data) {
 		colors = data;
 		level_color();
 	});
