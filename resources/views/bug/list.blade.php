@@ -11,6 +11,7 @@
                 <th>Create At</th>
             </tr>
         </thead>
+        <tbody id="updates"></tbody>
         <tbody>
             @foreach($bugs as $bug)
                 <tr>
