@@ -26,13 +26,9 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Exceptions\NotFoundException;
 use App\Http\Requests\BugReportRequest;
-use App\Model\Bug;
-use App\Services\Github\Issue;
+use Elearn\Model\Bug;
 use Illuminate\Http\Response;
-use Psy\Util\Json;
 
 /**
  * Controller for Handle Bug Reporting.

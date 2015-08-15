@@ -70,8 +70,6 @@ class BugControllerTest extends \TestCase
     public function testList()
     {
         $this->visit('/bug/list')
-            ->see('Issue List')
-            ->click('Test')
-            ->seePageIs('/bug/1');
+            ->see('Issue List');
     }
 }
