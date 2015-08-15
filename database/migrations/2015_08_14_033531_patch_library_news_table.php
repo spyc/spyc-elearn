@@ -14,6 +14,7 @@ class PatchLibraryNewsTable extends Migration
     {
         Schema::table('library_news', function (Blueprint $table) {
             $table->timestamp('event_time')->after('title');
+            $table->string('type', 8)->index()->after('event_time');
         });
     }
 
@@ -26,6 +27,7 @@ class PatchLibraryNewsTable extends Migration
     {
         Schema::table('library_news', function (Blueprint $table) {
             $table->dropColumn('event_time');
+            $table->dropColumn('type');
         });
     }
 }

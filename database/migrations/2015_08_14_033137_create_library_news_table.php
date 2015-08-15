@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLibraryNewsTable extends Migration
+class RealCreateLibraryNewsTable extends Migration
 {
     /**
      * Run the migrations.
