@@ -26,3 +26,22 @@ footer {
     background-color: lightgrey;
     box-shadow: inset 0 -1px 0 rgba(0,0,0,0.12);
 }
+
+.navbar {
+    background: #006F17;
+}
+
+.navbar * {
+    color: #FFFFFF !important;
+}
+
+.navbar a.nav-active {
+    background-color: #FFFFFF;
+    color: #009c1b !important;
+}
+
+.navbar a.nav-active:hover,
+.navbar a.nav-active:active,
+.navbar a.nav-active:focus{
+    color: #FFFFFF !important;
+}
