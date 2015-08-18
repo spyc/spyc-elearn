@@ -1,4 +1,5 @@
 !function ($) {
+    $('[autofocus]').focus();
     if ($('.tag-label[data-level]').length) {
         $.getJSON('/api/bug/level', function (data) {
             $('.tag-label[data-level]').each(function () {
