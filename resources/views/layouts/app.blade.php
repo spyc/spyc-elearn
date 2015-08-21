@@ -49,7 +49,5 @@
     @parent
     <script src="{{ url('/js/react/component.js') }}"></script>
     <script src="{{ url('/js/react/custom.js') }}"></script>
-    <script src="{{ url('/js/jquery.nicescroll.min.js') }}"></script>
-    <script src="{{ url('/js/markdown.min.js') }}"></script>
     <script src="{{ url('/js/ui.js') }}"></script>
 @stop
