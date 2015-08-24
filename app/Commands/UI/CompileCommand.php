@@ -75,7 +75,7 @@ class CompileCommand extends Command implements SelfHandling
         $this->files->put($file, '');
         foreach ($css['uses'] as $component) {
             $content = $this->files->get(base_path('resources/assets/UI/css/' . $component . '.min.css'));
-            $this->files->append($file, $content);
+            $this->files->append($file, $content . "\n");
         }
 
         $this->info('CSS Compile Finished');
@@ -86,7 +86,7 @@ class CompileCommand extends Command implements SelfHandling
 
         foreach ($js['uses'] as $component) {
             $content = $this->files->get(base_path('resources/assets/UI/js/' . $component . '.min.js'));
-            $this->files->append($file, $content);
+            $this->files->append($file, $content . "\n");
         }
 
         $this->info('Javascript Compile Finished');

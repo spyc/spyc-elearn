@@ -7,8 +7,8 @@ return [
             'jquery',
             'jquery.nicescroll',
             'bootstrap',
-            env('APP_DEBUG') ? 'react-dev' : 'react',
             'markdown',
+            env('APP_DEBUG') ? 'react-dev' : 'react',
         ]
     ],
     'css' => [
