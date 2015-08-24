@@ -2,15 +2,21 @@
 
 body {
     font-size: 1.6em;
+    padding-top: 50px;
+    line-height: 1.6;
 }
 
-#wrap {
-    margin-top: 100px;
+.jumbotron {
+    padding-top: 30px !important;
 }
 
 footer {
     font-size: 1em;
     margin-top: 3em;
+}
+
+.navbar+div{
+    padding-top: 30px;
 }
 
 .tag-label {
@@ -29,6 +35,16 @@ footer {
 
 .navbar {
     background: #006F17;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    top: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    min-height: 50px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
 }
 
 .navbar * {

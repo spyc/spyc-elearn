@@ -1,4 +1,4 @@
-@media (min-width: 992px) {
+@media (min-width: 800px) {
     .jumbotron {
         color: #006f17;
         background-color: #222;
@@ -9,7 +9,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 800px) {
     .nav-highlight, .nav-highlight a {
         background-color: #006f17 !important;
         color: #fff !important;
@@ -26,7 +26,7 @@
 }
 
 #introjumbo, #introjumbo .container {
-    min-height: 100vh;
+    min-height: 5vh;
     color: #006f17;
     text-align: center;
 }
@@ -36,7 +36,7 @@
 }
 
 #introjumbo h1 {
-    margin-top: 20vh;
+    margin-top: 5vh;
 }
 #introjumbo h2 {
     margin-bottom: 1em;
