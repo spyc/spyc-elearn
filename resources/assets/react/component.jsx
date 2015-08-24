@@ -50,10 +50,76 @@
         }
     });
 
+    var MarkdownTextarea = React.createClass({
+        generatePreview: function() {
+            var content = this.refs.markdownTextarea.getDOMNode().value;
+            this.setState({
+                preview: Markdown.toHTML(content)
+            });
+        },
+        render: function() {
+            var classes = this.props.className || '';
+            return(
+                <div className={classes}>
+                    <ul className="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#edit" aria-controls="edit" aria-expanded="true" role="tab" data-toggle="tab">
+                                Write
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#preview" aria-controls="preview" aria-expanded="true" role="tab" data-toggle="tab">
+                                Preview
+                            </a>
+                        </li>
+                    </ul>
+                    <div className="tab-content">
+                        <div role="tabpanel" className="tab-pane active" id="edit">
+                            <textarea name={this.props.name} ref="markdownTextarea" className="form-control" />
+                        </div>
+                        <div role="tabpanel" className="tab-pane" id="preview">
+                            {this.state.preview}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    });
+
+    var FormGroup = React.createClass({
+        propTypes: {
+            type: React.PropTypes.string,
+            name: React.PropTypes.string,
+            label: React.PropTypes.string,
+            required: React.PropTypes.bool,
+            autofocus: React.PropTypes.bool
+        },
+        getDefaultProps: function() {
+            return {
+                required: true,
+                autofocus: false
+            }
+        },
+        render: function() {
+            return (
+                <div className="form-group">
+                    <label for={this.props.name} className="col-sm-2 control-label">
+                        {this.props.label}
+                    </label>
+                    <div className="col-sm-8">
+                        <input type={this.props.type} id={this.props.name} name={this.props.name} placeholder={this.props.label} required={this.props.required} autofocus={this.props.autofocus} />
+                    </div>
+                </div>
+            );
+        }
+    });
+
     var Bootstrap = {
         Table: Table,
         Button: Button,
-        Container: Container
+        Container: Container,
+        MarkdownTextarea: MarkdownTextarea,
+        FormGroup: FormGroup
     };
     window.Bootstrap = Bootstrap;
 }(window.React);
