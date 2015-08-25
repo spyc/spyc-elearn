@@ -7,7 +7,7 @@
 @stop
 
 @section('stylesheet')
-	<link rel="stylesheet" href="{{ url('/css/bootstrap.min.css') }}" type="text/css">
+	<link rel="stylesheet" href="{{ url('/css/style.css') }}" type="text/css">
 @stop
 
 @section('scripts')

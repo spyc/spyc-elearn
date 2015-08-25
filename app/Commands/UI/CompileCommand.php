@@ -70,16 +70,6 @@ class CompileCommand extends Command implements SelfHandling
 
     public function handle()
     {
-        $css = Config::get('ui.css');
-        $file = public_path('css/' . $css['name'] . '.min.css');
-        $this->files->put($file, '');
-        foreach ($css['uses'] as $component) {
-            $content = $this->files->get(base_path('resources/assets/UI/css/' . $component . '.min.css'));
-            $this->files->append($file, $content . "\n");
-        }
-
-        $this->info('CSS Compile Finished');
-
         $js = Config::get('ui.js');
         $file = public_path('js/' . $js['name'] . '.min.js');
         $this->files->put($file, '');
