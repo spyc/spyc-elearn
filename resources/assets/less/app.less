@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
-@import "normalize";
 @import "bootstrap/bootstrap";
 @import "font-awesome/font-awesome";
 
 @main-theme: #006F17;
 @inverse-theme: #FFFFFF;
 @text-color: #000000;
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic);
 
 body {
 	font-size: 1.6em;
@@ -15,23 +16,15 @@ body {
   	color: @text-color;
 }
 
-.jumbotron {
-  padding-top: 30px !important;
-}
-
 footer {
   font-size: 1em;
   margin-top: 3em;
 }
 
-.navbar + div{
-  padding-top: 30px;
-}
-
 .tag-label {
   border-radius: 5px;
   padding: 3px 4px 3px 4px;
-  margin: 2px 2px 2px 0;
+  margin: 2px 2px 2px 5px;
   text-decoration: none;
   font-size: 70%;
   font-weight: bold;
@@ -65,11 +58,21 @@ footer {
 	a.nav-active:hover,
 	a.nav-active:active,
 	a.nav-active:focus {
-	  	color: @inverse-theme !important;
+	  	color: lighten(@inverse-theme, 10%) !important;
+	}
+
+  	a:hover,
+	a:focus,
+	a:active{
+	   background-color: lighten(@main-theme, 10%) !important;
 	}
 
   	.dropdown-menu a{
 	  	color: @text-color !important;
 	}
+
+  	+ div {
+		padding-top: 30px;
+  	}
 
 }
