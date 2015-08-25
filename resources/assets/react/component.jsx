@@ -114,12 +114,23 @@
         }
     });
 
+    var TabLabel = React.createClass({
+        render: function() {
+            return (
+                <span className="tag-label" data-level={ this.props.level }>
+                        {this.props.children}
+                </span>
+            );
+        }
+    });
+
     var Bootstrap = {
         Table: Table,
         Button: Button,
         Container: Container,
         MarkdownTextarea: MarkdownTextarea,
-        FormGroup: FormGroup
+        FormGroup: FormGroup,
+        TabLabel
     };
     window.Bootstrap = Bootstrap;
 }(window.React);
