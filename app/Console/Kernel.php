@@ -16,7 +16,8 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\Inspire::class,
         \App\Commands\Session\SessionClearCommand::class,
         \App\Commands\Log\LogDisplayCommand::class,
-        \App\Commands\Log\LogClearCommand::class
+        \App\Commands\Log\LogClearCommand::class,
+        \App\Commands\UI\CompileCommand::class
     ];
 
     /**

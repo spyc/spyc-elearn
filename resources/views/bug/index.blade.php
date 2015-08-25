@@ -18,7 +18,7 @@
         </p>
         <p>
             All the issue report we receive would be shown in both our site and Github.
-            You may just click the button <strong>'I have this problem also!'</strong> instead of starting another new issue.
+            You may sign in Github to add comment on issues.
         </p>
         <br>
         <a href="{{ route('bug.list') }}" class="btn btn-danger">View Issue</a>

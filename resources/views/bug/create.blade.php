@@ -62,6 +62,5 @@
 
 @section('scripts')
     @parent
-    <script src="/js/markdown.min.js"></script>
-    <script src="/js/bug/create.js"></script>
+    <script src="{{ url('/js/bug/create.js') }}"></script>
 @stop

@@ -50,10 +50,76 @@
         }
     });
 
+    var MarkdownTextarea = React.createClass({displayName: "MarkdownTextarea",
+        generatePreview: function() {
+            var content = this.refs.markdownTextarea.getDOMNode().value;
+            this.setState({
+                preview: Markdown.toHTML(content)
+            });
+        },
+        render: function() {
+            var classes = this.props.className || '';
+            return(
+                React.createElement("div", {className: classes}, 
+                    React.createElement("ul", {className: "nav nav-tabs", role: "tablist"}, 
+                        React.createElement("li", {role: "presentation", class: "active"}, 
+                            React.createElement("a", {href: "#edit", "aria-controls": "edit", "aria-expanded": "true", role: "tab", "data-toggle": "tab"}, 
+                                "Write"
+                            )
+                        ), 
+                        React.createElement("li", {role: "presentation"}, 
+                            React.createElement("a", {href: "#preview", "aria-controls": "preview", "aria-expanded": "true", role: "tab", "data-toggle": "tab"}, 
+                                "Preview"
+                            )
+                        )
+                    ), 
+                    React.createElement("div", {className: "tab-content"}, 
+                        React.createElement("div", {role: "tabpanel", className: "tab-pane active", id: "edit"}, 
+                            React.createElement("textarea", {name: this.props.name, ref: "markdownTextarea", className: "form-control"})
+                        ), 
+                        React.createElement("div", {role: "tabpanel", className: "tab-pane", id: "preview"}, 
+                            this.state.preview
+                        )
+                    )
+                )
+            );
+        }
+    });
+
+    var FormGroup = React.createClass({displayName: "FormGroup",
+        propTypes: {
+            type: React.PropTypes.string,
+            name: React.PropTypes.string,
+            label: React.PropTypes.string,
+            required: React.PropTypes.bool,
+            autofocus: React.PropTypes.bool
+        },
+        getDefaultProps: function() {
+            return {
+                required: true,
+                autofocus: false
+            }
+        },
+        render: function() {
+            return (
+                React.createElement("div", {className: "form-group"}, 
+                    React.createElement("label", {for: this.props.name, className: "col-sm-2 control-label"}, 
+                        this.props.label
+                    ), 
+                    React.createElement("div", {className: "col-sm-8"}, 
+                        React.createElement("input", {type: this.props.type, id: this.props.name, name: this.props.name, placeholder: this.props.label, required: this.props.required, autofocus: this.props.autofocus})
+                    )
+                )
+            );
+        }
+    });
+
     var Bootstrap = {
         Table: Table,
         Button: Button,
-        Container: Container
+        Container: Container,
+        MarkdownTextarea: MarkdownTextarea,
+        FormGroup: FormGroup
     };
     window.Bootstrap = Bootstrap;
 }(window.React);

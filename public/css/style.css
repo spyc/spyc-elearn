@@ -2,15 +2,21 @@
 
 body {
     font-size: 1.6em;
+    padding-top: 50px;
+    line-height: 1.6;
 }
 
-#wrap {
-    margin-top: 100px;
+.jumbotron {
+    padding-top: 30px !important;
 }
 
 footer {
     font-size: 1em;
     margin-top: 3em;
+}
+
+.navbar+div{
+    padding-top: 30px;
 }
 
 .tag-label {
@@ -25,4 +31,33 @@ footer {
     display: inline-block;
     background-color: lightgrey;
     box-shadow: inset 0 -1px 0 rgba(0,0,0,0.12);
+}
+
+.navbar {
+    background: #006F17;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    top: 0;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    min-height: 50px;
+    margin-bottom: 0;
+    border: 1px solid transparent;
+}
+
+.navbar * {
+    color: #FFFFFF !important;
+}
+
+.navbar a.nav-active {
+    background-color: #FFFFFF;
+    color: #009c1b !important;
+}
+
+.navbar a.nav-active:hover,
+.navbar a.nav-active:active,
+.navbar a.nav-active:focus{
+    color: #FFFFFF !important;
 }
