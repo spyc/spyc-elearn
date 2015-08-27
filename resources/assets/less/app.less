@@ -3,7 +3,11 @@
 @import "bootstrap/bootstrap";
 @import "font-awesome/font-awesome";
 
+//@import "theme/Flat";
+
 @main-theme: #006F17;
+@theme-light: #00a65a;
+@theme-focus: #008d4c;
 @inverse-theme: #FFFFFF;
 @text-color: #000000;
 
@@ -14,6 +18,19 @@ body {
 	padding-top: 50px;
 	line-height: 1.6;
   	color: @text-color;
+  	background-color: @inverse-theme;
+  	width: 100%;
+    height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  	font-weight: 700;
 }
 
 footer {
@@ -40,13 +57,18 @@ footer {
 	font-weight: 400;
 	-webkit-font-smoothing: antialiased;
 	top: 0;
-	position: fixed;
 	right: 0;
 	left: 0;
+  	position: fixed;
 	z-index: 1030;
 	min-height: 50px;
 	margin-bottom: 0;
 	border: 1px solid transparent;
+
+  	> .container {
+	   font-size: 14px;
+	}
+
 	* {
 		color: @inverse-theme !important;
 	}
@@ -58,13 +80,13 @@ footer {
 	a.nav-active:hover,
 	a.nav-active:active,
 	a.nav-active:focus {
-	  	color: lighten(@inverse-theme, 10%) !important;
+	  	color: @theme-focus !important;
 	}
 
   	a:hover,
 	a:focus,
 	a:active{
-	   background-color: lighten(@main-theme, 10%) !important;
+	   background-color: @theme-focus !important;
 	}
 
   	.dropdown-menu a{
@@ -75,4 +97,19 @@ footer {
 		padding-top: 30px;
   	}
 
+}
+
+.content-section-left {
+  	padding: 50px 0;
+  	background-color: darken(@gray-lighter, 5%);
+}
+
+.section-header {
+  	margin-bottom: 30px;
+}
+
+hr.section-header-spacer {
+  	float: left;
+  	width: 200px;
+  	border-top: 3px solid @gray-lighter;
 }
