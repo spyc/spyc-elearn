@@ -114,12 +114,23 @@
         }
     });
 
+    var TabLabel = React.createClass({displayName: "TabLabel",
+        render: function() {
+            return (
+                React.createElement("span", {className: "tag-label", "data-level":  this.props.level}, 
+                        this.props.children
+                )
+            );
+        }
+    });
+
     var Bootstrap = {
         Table: Table,
         Button: Button,
         Container: Container,
         MarkdownTextarea: MarkdownTextarea,
-        FormGroup: FormGroup
+        FormGroup: FormGroup,
+        TabLabel: TabLabel
     };
     window.Bootstrap = Bootstrap;
 }(window.React);
