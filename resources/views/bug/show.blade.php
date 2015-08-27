@@ -2,6 +2,7 @@
 
 @section('wrap')
 <div id="wrap" class="container">
+    {{--
     <h2>
         {{ $bug->title }}
         <span class="tag-label" data-level="{{ $bug->level }}">{{ $bug->level }}</span>
@@ -14,6 +15,11 @@
             {{ $bug->detail }}
         </div>
     </div>
-
+    --}}
 </div>
+@stop
+
+@section('scripts')
+    @parent
+    <script src="{{ url('/js/react/bug/show.js') }}"></script>
 @stop
