@@ -52,7 +52,8 @@
     ],
     "post-create-project-cmd": [
       "hhvm -r \"copy('.env.example', '.env');\"",
-      "hhvm artisan key:generate"
+      "hhvm artisan key:generate",
+      "hhvm -r \"copy('Makefile.example', 'Makefile');\""
     ]
   },
   "config": {
