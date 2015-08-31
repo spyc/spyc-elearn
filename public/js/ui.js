@@ -1,5 +1,11 @@
 !function ($) {
-    $('[autofocus]').focus();
+    'use strict';
+    var
+        $window = $(window),
+        $body = $('body');
+
+    var $sidebar = $('.sidebar');
+
     function label() {
         if ($('.tag-label[data-level]').length) {
             $.getJSON('/api/bug/level', function (data) {
@@ -13,6 +19,7 @@
 
     label();
 
+    $('[autofocus]').focus();
     $('html').niceScroll();
 
     $('[data-markdown-translate]').each(function (){
