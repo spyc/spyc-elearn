@@ -9,8 +9,8 @@ test:
 install: update cache compile test up
 
 compile:
-	$(CONSOLE) ui:compile
 	lessc --clean-css resources/assets/less/app.less public/css/style.css
+	gulp scripts
 
 sync:
 	git pull

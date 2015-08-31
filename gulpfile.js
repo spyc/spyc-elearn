@@ -20,6 +20,9 @@ elixir(function(mix) {
     mix.scripts([
         'jquery.min.js',
         'jquery.nicescroll.min.js',
+        'jquery.metismenu.min.js',
+        'raphael.min.js',
+        'morris.min.js',
         'bootstrap.min.js',
         'markdown.min.js',
         MODE === 'dev' ? 'react-dev.min.js' :'react.min.js'
