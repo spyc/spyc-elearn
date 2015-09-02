@@ -109,7 +109,7 @@ return $settings = array(
             'binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
         ),
         // Public x509 certificate of the IdP
-        'x509cert' => 'MIID/TCCAuWgAwIBAgIJAI4R3WyjjmB1MA0GCSqGSIb3DQEBCwUAMIGUMQswCQYDVQQGEwJBUjEVMBMGA1UECAwMQnVlbm9zIEFpcmVzMRUwEwYDVQQHDAxCdWVub3MgQWlyZXMxDDAKBgNVBAoMA1NJVTERMA8GA1UECwwIU2lzdGVtYXMxFDASBgNVBAMMC09yZy5TaXUuQ29tMSAwHgYJKoZIhvcNAQkBFhFhZG1pbmlAc2l1LmVkdS5hcjAeFw0xNDEyMDExNDM2MjVaFw0yNDExMzAxNDM2MjVaMIGUMQswCQYDVQQGEwJBUjEVMBMGA1UECAwMQnVlbm9zIEFpcmVzMRUwEwYDVQQHDAxCdWVub3MgQWlyZXMxDDAKBgNVBAoMA1NJVTERMA8GA1UECwwIU2lzdGVtYXMxFDASBgNVBAMMC09yZy5TaXUuQ29tMSAwHgYJKoZIhvcNAQkBFhFhZG1pbmlAc2l1LmVkdS5hcjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMbzW/EpEv+qqZzfT1Buwjg9nnNNVrxkCfuR9fQiQw2tSouS5X37W5h7RmchRt54wsm046PDKtbSz1NpZT2GkmHN37yALW2lY7MyVUC7itv9vDAUsFr0EfKIdCKgxCKjrzkZ5ImbNvjxf7eA77PPGJnQ/UwXY7W+cvLkirp0K5uWpDk+nac5W0JXOCFR1BpPUJRbz2jFIEHyChRt7nsJZH6ejzNqK9lABEC76htNy1Ll/D3tUoPaqo8VlKW3N3MZE0DB9O7g65DmZIIlFqkaMH3ALd8adodJtOvqfDU/A6SxuwMfwDYPjoucykGDu1etRZ7dF2gd+W+1Pn7yizPT1q8CAwEAAaNQME4wHQYDVR0OBBYEFPsn8tUHN8XXf23ig5Qro3beP8BuMB8GA1UdIwQYMBaAFPsn8tUHN8XXf23ig5Qro3beP8BuMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAGu60odWFiK+DkQekozGnlpNBQz5lQ/bwmOWdktnQj6HYXu43e7sh9oZWArLYHEOyMUekKQAxOK51vbTHzzw66BZU91/nqvaOBfkJyZKGfluHbD0/hfOl/D5kONqI9kyTu4wkLQcYGyuIi75CJs15uA03FSuULQdY/Liv+czS/XYDyvtSLnu43VuAQWN321PQNhuGueIaLJANb2C5qq5ilTBUw6PxY9Z+vtMjAjTJGKEkE/tQs7CvzLPKXX3KTD9lIILmX5yUC3dLgjVKi1KGDqNApYGOMtjr5eoxPQrqDBmyx3flcy0dQTdLXud3UjWVW3N0PYgJtw5yBsS74QTGD4=',
+        'x509cert' => 'MIICFzCCAYACCQDKxWRBcrRH7zANBgkqhkiG9w0BAQUFADBQMQswCQYDVQQGEwJISzESMBAGA1UECAwJSG9uZyBLb25nMQswCQYDVQQHDAJISzEgMB4GA1UECgwXU2hhdGluIFB1aSBZaW5nIENvbGxlZ2UwHhcNMTQxMjA1MDgxMjM5WhcNNDIwNDIxMDgxMjM5WjBQMQswCQYDVQQGEwJISzESMBAGA1UECAwJSG9uZyBLb25nMQswCQYDVQQHDAJISzEgMB4GA1UECgwXU2hhdGluIFB1aSBZaW5nIENvbGxlZ2UwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALU6Ls3rskRyJD0Ys0m2zjUwMU7zRo31Flui/Utm0CqG3Lj0cA/rVs5MLClSqle8FgTYLsmngx3TmJuuvHYPZbCW+Xq6YyBXAdqr4I6hMcHhFtEijlMIe+J7bN41PMe5NT7vxuL6qVHE0dWpGv+rz8esyqjzCp1jELFXeYW+/E/LAgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAVRmIg2wm2H8+N/qyEB9OPFzNB2ycyu86pvf90Riem2iapN8qxVumbn0JBxOOS7rtePBHcdvMAmUbMgrazQada7PU87ggpzaEmYRwuMG5GulyVIgYSN2n7CGIZAJ9YYuwawirgPXzTdqgXtC8e2ud0ymavBRgMqV2KKJi1eZXF28='
         /*
          *  Instead of use the whole x509cert you can use a fingerprint
          *  (openssl x509 -noout -fingerprint -in "idp.crt" to generate it)
@@ -163,11 +163,13 @@ return $settings = array(
 
         // Indicates a requirement for the <saml:Assertion> elements received by
         // this SP to be signed.        [The Metadata of the SP will offer this info]
-        'wantAssertionsSigned' => false,
+        'wantAssertionsSigned' => true,
 
         // Indicates a requirement for the NameID received by
         // this SP to be encrypted.
         'wantNameIdEncrypted' => false,
+
+        'wantAssertionsEncrypted' => true,
 
         // Authentication context.
         // Set to false and no AuthContext will be sent in the AuthNRequest,
@@ -179,21 +181,21 @@ return $settings = array(
     // Contact information template, it is recommended to suply a technical and support contacts
     'contactPerson' => array(
         'technical' => array(
-            'givenName' => 'name',
-            'emailAddress' => 'no@reply.com'
+            'givenName' => 'Tony Yip',
+            'emailAddress' => 'pyc10169@pyc.edu.hk'
         ),
         'support' => array(
-            'givenName' => 'Support',
-            'emailAddress' => 'no@reply.com'
+            'givenName' => 'Shatin Pui Ying College',
+            'emailAddress' => 'info@pyc.edu.hk'
         ),
     ),
 
     // Organization information template, the info in en_US lang is recomended, add more if required
     'organization' => array(
-        'en-US' => array(
-            'name' => 'Name',
-            'displayname' => 'Display Name',
-            'url' => 'http://url'
+        'en-GB' => array(
+            'name' => 'elearn',
+            'displayname' => 'SPYC Elearn',
+            'url' => 'http://elearn.pyc.edu.hk'
         ),
     ),
 
