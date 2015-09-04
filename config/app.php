@@ -148,6 +148,8 @@ return [
 		\App\Providers\EventServiceProvider::class,
 		\App\Providers\RouteServiceProvider::class,
 
+		\Aacotroneo\Saml2\Saml2ServiceProvider::class,
+
 		\Elearn\Subject\Provider\SubjectServiceProvider::class,
         \Elearn\Library\Provider\LibraryServiceProvider::class
 
