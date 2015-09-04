@@ -1,7 +1,5 @@
 <?php
 
-use File;
-
 //This is variable is an example - Just make sure that the urls in the 'idp' config are ok.
 $idp_host = 'https://www.pyc.edu.hk/simplesaml';
 
@@ -58,8 +56,8 @@ return $settings = array(
 
         // Usually x509cert and privateKey of the SP are provided by files placed at
         // the certs folder. But we can also provide them with the following parameters
-        'x509cert' => File::get(base_path('cert/sp.crt')),
-        'privateKey' => File::get(base_path('cert/sp.key')),
+        'x509cert' => file_get_contents(base_path('cert/sp.crt')),
+        'privateKey' => file_get_contents(base_path('cert/sp.key')),
 
         //LARAVEL - You don't need to change anything else on the sp
         // Identifier of the SP entity  (must be a URI)
