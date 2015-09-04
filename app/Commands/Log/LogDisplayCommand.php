@@ -68,7 +68,7 @@ class LogDisplayCommand extends Command implements SelfHandling
             $date = Carbon::now()->subDay()->format('Y-m-d');
         }
 
-        $file = 'storage/logs/laravel-' . $date . '.log';
+        $file = storage_path('logs/laravel-' . $date . '.log');
         if (!$this->files->exists($file))
             throw new FileNotFoundException($file . ' Not Exists (Possible for error date)');
 
