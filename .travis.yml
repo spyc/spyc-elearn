@@ -6,6 +6,8 @@ before_script:
   - sudo apt-get -qq update
   - yes Y | sudo apt-get -qq install hhvm
   - hhvm composer.phar self-update
+  - cp cert/demo.crt cert/sp.crt
+  - cp cert/demo.key cert/demo.key
   - hhvm composer.phar install --no-dev --prefer-dist -o --profile -vv
 
 script: hhvm vendor/bin/phpunit
