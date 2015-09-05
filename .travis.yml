@@ -4,7 +4,7 @@ php:
 
 before_script:
   - sudo apt-get -qq update
-  - sudo apt-get -y -qq install hhvm
+  - yes Y | sudo apt-get -qq install hhvm
   - hhvm composer.phar self-update
   - hhvm composer.phar install --no-dev --prefer-dist -o --profile -vv
 
