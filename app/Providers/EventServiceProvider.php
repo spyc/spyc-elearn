@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Aacotroneo\Saml2\Events\Saml2LoginEvent;
+use App\Listeners\SSOLoginListener;
+use Aacotroneo\Saml2\Events\Saml2LogoutEvent;
+use App\Listeners\SSOLogoutListener;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -16,6 +20,12 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\SomeEvent' => [
             'App\Listeners\EventListener',
         ],
+        Saml2LoginEvent::class => [
+            SSOLoginListener::class
+        ],
+        Saml2LogoutEvent::class => [
+            SSOLogoutListener::class
+        ]
     ];
 
     /**
