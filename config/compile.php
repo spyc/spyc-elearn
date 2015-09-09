@@ -21,6 +21,14 @@ return [
 		realpath(__DIR__.'/../app/Providers/EventServiceProvider.php'),
 		realpath(__DIR__.'/../app/Providers/RouteServiceProvider.php'),
 
+		realpath(__DIR__.'/../vendor/aacotroneo/laravel-saml2/src/Aacotroneo/Saml2/Saml2ServiceProvider.php'),
+        realpath(__DIR__.'/../vendor/spyc/elearn-subject/src/Provider/SubjectServiceProvider.php'),
+        realpath(__DIR__.'/../vendor/spyc/elearn-library/src/Provider/LibraryServiceProvider.php'),
+
+        realpath(__DIR__.'/../app/Http/Middleware/EncryptCookies.php'),
+        realpath(__DIR__.'/../app/Http/Middleware/VerifyCsrfToken.php'),
+        realpath(__DIR__.'/../app/Http/Middleware/FrameworkHeader.php'),
+
 	],
 
 	/*
