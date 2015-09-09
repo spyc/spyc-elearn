@@ -32,6 +32,7 @@ class LibraryControllerTest extends \TestCase
     public function testIndex()
     {
         $this->visit('/library')
-            ->see('Knowledge is the food of the soul.');
+            ->see('Knowledge is the food of the soul.')
+            ->see('About Us');
     }
 }
