@@ -201,6 +201,8 @@ return [
 		'Validator' => \Illuminate\Support\Facades\Validator::class,
 		'View'      => \Illuminate\Support\Facades\View::class,
 
+		'SSO'       => \Aacotroneo\Saml2\Facades\Saml2Auth::class,
+
 	],
 
 ];
