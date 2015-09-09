@@ -36,8 +36,7 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
-Route::group(['prefix' => 'auth'], function()
-{
+Route::group(['prefix' => 'auth'], function() {
     Route::get('login', [
         'as' => 'auth.login',
         'uses' => 'Auth\AuthController@getLogin'

@@ -24,15 +24,16 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Library;
+namespace App\Listeners;
 
 
-class LibraryControllerTest extends \TestCase
+use Aacotroneo\Saml2\Events\Saml2LogoutEvent;
+use Illuminate\Support\Facades\Auth;
+
+class SSOLogoutListener
 {
-    public function testIndex()
+    public function handle(Saml2LogoutEvent $event)
     {
-        $this->visit('/library')
-            ->see('Knowledge is the food of the soul.')
-            ->see('About Us');
+        Auth::logout();
     }
 }

@@ -24,15 +24,17 @@
  * @license  http://opensource.org/licenses/GPL-3.0 GNU General Public License
  */
 
-namespace Library;
+namespace App\Listeners;
 
+use Aacotroneo\Saml2\Events\Saml2LoginEvent;
+use App\Model\User;
 
-class LibraryControllerTest extends \TestCase
+class SSOLoginListener
 {
-    public function testIndex()
+    public function handle(Saml2LoginEvent $event)
     {
-        $this->visit('/library')
-            ->see('Knowledge is the food of the soul.')
-            ->see('About Us');
+        $user = $event->getSaml2User();
+        $laravel = User::where(['pycid' => $user->getUserId()]);
+        Auth::login($laravel);
     }
 }

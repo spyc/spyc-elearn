@@ -1,47 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Maintaining.</title>
+@extends('layouts.app')
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                color: #B0BEC5;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 72px;
-                margin-bottom: 40px;
-            }
-        </style>
-    </head>
-    <body>
+@section('navbar')
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-            <div class="content">
-                <div class="title">Sorry! The site is maintaining.</div>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ route('home') }}">Project WHJSLS</a>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@stop
+
+@section('wrap')
+    <div class="jumbotron">
+        <div class="container" style="text-align: center;">
+            <h1>Maintaining!</h1>
+            <h2>We will return as soon as possible.</h2>
+        </div>
+    </div>
+@stop
