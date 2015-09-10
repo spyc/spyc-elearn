@@ -17,6 +17,7 @@
     "hhvm": "*",
     "laravel/framework": "^5.1",
     "guzzlehttp/guzzle": "~6.0",
+    "doctrine/dbal": "~2.5",
     "phpunit/phpunit": "~4.0",
     "aacotroneo/laravel-saml2": "dev-master",
     "spyc/elearn-library": "dev-master",
