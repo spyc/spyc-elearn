@@ -1,0 +1,46 @@
+.navbar {
+  background: @main-theme;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  top: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1030;
+  min-height: 50px;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+
+  > .container {
+    font-size: 14px;
+  }
+
+  * {
+    color: @inverse-theme !important;
+  }
+  a.nav-active {
+    background-color: @inverse-theme;
+    color: @main-theme !important;
+  }
+
+  a.nav-active:hover,
+  a.nav-active:active,
+  a.nav-active:focus {
+    color: @theme-focus !important;
+  }
+
+  a:hover,
+  a:focus,
+  a:active{
+    background-color: @theme-focus !important;
+  }
+
+  .dropdown-menu a{
+    color: @text-color !important;
+  }
+
+  + div {
+    padding-top: 30px;
+  }
+
+}

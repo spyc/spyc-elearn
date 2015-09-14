@@ -1,45 +1,15 @@
 @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic);
 
 @import "bootstrap/bootstrap";
 @import "font-awesome/font-awesome";
-@import "morris";
-@import "metismenu";
+@import "plugins/plugins";
 
-@main-theme: #006F17;
-@theme-light: #00a65a;
-@theme-focus: #008d4c;
-@inverse-theme: #FFFFFF;
-@text-color: #000000;
+@import "purpledragon/purpledragon";
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic);
-
-body {
-  font-size: 13px;
-  font-weight: 500;
-  padding-top: 50px;
-  line-height: 1.6;
-  color: @text-color;
-  background-color: @inverse-theme;
-  width: 100%;
-  height: 100%;
-}
 
 .signin-panel {
   margin-top: 25%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-}
-
-footer {
-  font-size: 1em;
-  margin-top: 3em;
 }
 
 .tag-label {
@@ -54,53 +24,6 @@ footer {
   display: inline-block;
   background-color: lightgrey;
   box-shadow: inset 0 -1px 0 rgba(0,0,0,0.12);
-}
-
-.navbar {
-  background: @main-theme;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  top: 0;
-  right: 0;
-  left: 0;
-  position: fixed;
-  z-index: 1030;
-  min-height: 50px;
-  margin-bottom: 0;
-  border: 1px solid transparent;
-
-  > .container {
-    font-size: 14px;
-  }
-
-  * {
-    color: @inverse-theme !important;
-  }
-  a.nav-active {
-    background-color: @inverse-theme;
-    color: @main-theme !important;
-  }
-
-  a.nav-active:hover,
-  a.nav-active:active,
-  a.nav-active:focus {
-    color: @theme-focus !important;
-  }
-
-  a:hover,
-  a:focus,
-  a:active{
-    background-color: @theme-focus !important;
-  }
-
-  .dropdown-menu a{
-    color: @text-color !important;
-  }
-
-  + div {
-    padding-top: 30px;
-  }
-
 }
 
 .content-section-left {
