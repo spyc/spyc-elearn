@@ -26,7 +26,7 @@
 
 namespace Spyc\Elearn\Test;
 
-use App\Model\Bug;
+use Elearn\Model\Bug;
 use App\Http\Controllers\BugController;
 
 class BugControllerTest extends \TestCase
