@@ -13,12 +13,12 @@
             active: React.PropTypes.bool
         },
         render: function () {
-            this.props["class"] = this.props["class"] || '';
-            this.props["class"] += ' btn';
+            this.props.class = this.props.class || '';
+            this.props.class += ' btn';
             if (this.props.active)
-                this.props["class"] += ' active';
+                this.props.class += ' active';
             return (
-                React.createElement("button", {type: "button", className: this.props["class"]}, 
+                React.createElement("button", {type: "button", className: this.props.class}, 
                     this.props.children
                 )
             );
@@ -130,7 +130,7 @@
         Container: Container,
         MarkdownTextarea: MarkdownTextarea,
         FormGroup: FormGroup,
-        TabLabel: TabLabel
+        TabLabel
     };
     window.Bootstrap = Bootstrap;
 }(window.React);

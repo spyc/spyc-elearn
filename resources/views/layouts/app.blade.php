@@ -46,6 +46,10 @@
     </div>
 @stop
 
+@section('footer')
+    <div id="footer"></div>
+@stop
+
 
 @section('scripts')
     @parent
