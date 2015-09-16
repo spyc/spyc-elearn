@@ -29,6 +29,11 @@ Route::get('env', [
     'uses' => 'HomeController@environment'
 ]);
 
+Route::get('policy', [
+    'as' => 'policy',
+    'uses' => 'HomeController@policy'
+]);
+
 Route::get('bug/list', [
     'as' => 'bug.list',
     'uses' => 'BugController@all'
