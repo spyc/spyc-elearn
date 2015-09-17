@@ -31,6 +31,7 @@
                                 <nav className="col-md-6">
                                     <ul className="pull-right bottom-menu list-inline">
                                         <li><a href="/policy">Policy</a></li>
+                                        <li><a href="/terms">Terms</a></li>
                                     </ul>
                                 </nav>
                             </div>

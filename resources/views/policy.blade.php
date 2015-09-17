@@ -19,7 +19,7 @@
 
         <div class="container">
             <h3>Information Gathering and Usage</h3>
-            <ul class="chevron">
+            <ul class="article">
                 <li>
                     The data we kept are only your student ID code (or username for non-students user), name, class,
                     class number and gender.
@@ -32,7 +32,7 @@
 
         <div class="container">
             <h3>Cookies</h3>
-            <ul class="chevron">
+            <ul class="article">
                 <li>
                     A cookie is a small amount of data, which often includes an anonymous unique identifier,
                     that is sent to your browser from a web site's computers and stored on your computer's hard drive.
