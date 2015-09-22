@@ -1,4 +1,9 @@
 var elixir = require('laravel-elixir');
+var CleanCss = require('less-plugin-clean-css'),
+    cleancss = new CleanCss({advanced: true});
+
+require('./gulp/react');
+require('./gulp/script');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,9 +16,12 @@ var elixir = require('laravel-elixir');
  |
  */
 
-const MODE = 'devOps';
+const MODE = 'dev';
 
 elixir(function(mix) {
+    mix.less('app.less', 'public/css/style.css', {plugins: [cleancss]});
+    mix.jsx();
+    mix.js();
     mix.scripts([
         'jquery.min.js',
         'jquery.nicescroll.min.js',
