@@ -55,7 +55,7 @@
         <div class="container">
             <h3>Disclosure</h3>
             <p>
-                GitHub may disclose personally identifiable information under special circumstances,
+                Project WHJSLS may disclose personally identifiable information under special circumstances,
                 such as under the requirement of court and the Hong Kong Law.
             </p>
         </div>
