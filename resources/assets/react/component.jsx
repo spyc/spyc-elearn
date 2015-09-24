@@ -119,6 +119,28 @@
                 </span>
                 );
             }
+        }),
+        CreativeCommons = React.createClass({
+            propTypes: {
+                license: React.PropTypes.string,
+                name: React.PropTypes.string
+            },
+            render: function() {
+                var
+                    url = 'http://creativecommons.org/licenses/' + this.props.license,
+                    image = 'https://licensebuttons.net/l/' + this.props.license + '88x31.png';
+                return (
+                    <div className={this.props.className}>
+                        <a rel="license" href={url}>
+                            <img alt="Creative Commons Licence" style={{ 'borderWidth': 0}} src={image} />
+                        </a>
+                        <br />
+                        This work is licensed under a <a rel="license" href={url}>{this.props.name}</a>.
+                        <br />
+                        Logos and trademarks belong to their respective owners.
+                    </div>
+                );
+            }
         });
 
     window.Bootstrap = {
@@ -127,6 +149,7 @@
         Container: Container,
         MarkdownTextarea: MarkdownTextarea,
         FormGroup: FormGroup,
-        TabLabel: TabLabel
+        TabLabel: TabLabel,
+        CreativeCommons: CreativeCommons
     };
 }(window.React);

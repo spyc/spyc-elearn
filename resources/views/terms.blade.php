@@ -46,7 +46,28 @@
                 </li>
 
                 <li>
-                    This terms of service last modified at 17th September, 2015.
+                    Your use of the Elearn is at your sole risk.
+                    The service is provided on an "as is" and "as available" basis.
+                </li>
+
+                <li>
+                    You understand that Elearn uses Shatin Pui Ying College vendors and
+                    virtual machine to provide the necessary hardware, software, networking,
+                    storage, and related technology required to run the Elearn.
+                </li>
+
+                <li>
+                    You must not modify, adapt or hack the Elearn
+                    or modify another website so as to falsely imply that
+                    it is associated with the Elearn, WHJSLS, or any other WHJSLS service.
+                </li>
+
+                <li>
+                    You must not upload, post, host, or transmit unsolicited email, SMSs, or "spam" messages.
+                </li>
+
+                <li>
+                    You must not transmit any worms or viruses or any code of a destructive nature.
                 </li>
             </ol>
         </div>
@@ -131,6 +152,29 @@
                     temporarily or permanently, the Elearn (or any part thereof) with or without notice.
                 </li>
             </ol>
+        </div>
+
+        <div id="copyright" class="container">
+            <h3>E. Copyright and Content Ownership</h3>
+            <ol class="article">
+                <li>
+                    The content of each page may not be the same.
+                    It might be all right reserved,
+                    licensed under Creative Commons Attribution-ShareAlike 3.0 Hong Kong License (CC BY-SA 3.0 HK),
+                    or Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+                    For detail, please refer to the footer of the page.
+                </li>
+                <li>
+                    All the code of WHJSLS would be licensed under different Open Source license,
+                    the common license are GNU General Public License version 3.0,
+                    Apache License 2.0 or the MIT License.
+                    For detail of every part of code, please refer to its own Github repositories,
+                    the license would be in LICENSE or LICENSE.md file.
+                </li>
+            </ol>
+        </div>
+        <div class="pull-left">
+            <small>Last Updated: 24 Sept, 2015</small>
         </div>
     </div>
 @stop

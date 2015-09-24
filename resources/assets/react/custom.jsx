@@ -1,5 +1,42 @@
-!function(React){
-    var Footer = React.createClass({
+!function(React, Bootstrap){
+    var
+        CreativeCommons = Bootstrap.CreativeCommons,
+        Copyright = React.createClass({
+            propTypes: {
+                license: React.PropTypes.oneOf(['restrict', 'cc-hk', 'cc-international'])
+            },
+            getDefaultProps: function() {
+                return {
+                    license: 'cc-hk'
+                };
+            },
+            render: function() {
+                switch (this.props.license) {
+                    case 'restrict':
+                        var year = (new Date()).getFullYear();
+                        return (
+                            <div>&copy; Shatin Pui Ying College {year}</div>
+                        );
+                    case 'cc-hk':
+                        return (
+                            <CreativeCommons
+                                className={this.props.className}
+                                license="by-sa/3.0/hk/"
+                                name="Creative Commons Attribution-ShareAlike 3.0 Hong Kong License"
+                                />
+                        );
+                    case 'cc-international':
+                        return (
+                            <CreativeCommons
+                                className={this.props.className}
+                                license="by-nc-sa/4.0/"
+                                name="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License"
+                                />
+                        );
+                }
+            }
+        }),
+        Footer = React.createClass({
         render: function() {
             return (
                 <footer className="container">
@@ -18,16 +55,7 @@
                     <div id="bottom-nav">
                         <div className="container">
                             <div className="row">
-                                <div className="col-md-6">
-                                    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/hk/">
-                                        <img alt="Creative Commons Licence" style={{ 'borderWidth': 0}} src="https://licensebuttons.net/l/by-sa/3.0/hk/88x31.png" />
-                                    </a>
-                                    &emsp;This work is licensed under a&nbsp;
-                                    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/hk/">
-                                        Creative Commons Attribution-ShareAlike 3.0 Hong Kong License
-                                    </a>.
-                                    Logos and trademarks belong to their respective owners.
-                                </div>
+                                <Copyright className="col-md-6" />
                                 <nav className="col-md-6">
                                     <ul className="pull-right bottom-menu list-inline">
                                         <li><a href="/policy">Policy</a></li>
@@ -46,4 +74,4 @@
         <Footer />,
         document.getElementById('footer')
     );
-}(window.React);
+}(window.React, window.Bootstrap);
