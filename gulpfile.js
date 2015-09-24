@@ -19,6 +19,7 @@ require('./gulp/script');
 const MODE = 'dev';
 
 elixir(function(mix) {
+    mix.phpUnit();
     mix.less('app.less', 'public/css/style.css', {plugins: [cleancss]});
     mix.jsx();
     mix.js();

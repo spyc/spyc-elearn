@@ -14,7 +14,8 @@ elixir.extend('js', function (src, dest) {
         return gulp.src(src)
             .pipe(minify())
             .pipe(gulpif(doConcat, concat(dest)))
-            .pipe(gulp.dest(dest));
+            .pipe(gulp.dest(dest))
+            .pipe(new elixir.Notification('Script Compiled!'));
     })
-        .watch(src);
+        .watch('resources/assets/scripts/**/*.js');
 });
