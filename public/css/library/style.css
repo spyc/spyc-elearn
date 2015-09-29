@@ -1,11 +1,9 @@
 @media (min-width: 800px) {
     .jumbotron {
+        padding: 0 60px;
         color: #006f17;
-        background-color: #222;
-        background-image: url("../../images/library/banner.gif");
-        background-size: cover;
-        background-position: bottom;
-        background-attachment: fixed;
+        background: #fff url("../../images/library/banner.gif") center center;
+        background-repeat: no-repeat;
     }
 }
 
@@ -26,10 +24,10 @@
 }
 
 #introjumbo, #introjumbo .container {
-    min-height: 5vh;
     color: #006f17;
     text-align: center;
 }
+
 #introjumbo hr {
     border-color: #07c411;
     width: 40%;
@@ -40,4 +38,12 @@
 }
 #introjumbo h2 {
     margin-bottom: 1em;
+}
+
+.link{
+    width:300px;
+    height:100px;
+    border:1px solid silver;
+    margin:10px;
+    background-color: #fff;
 }

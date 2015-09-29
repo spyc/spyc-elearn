@@ -3,7 +3,7 @@
 //This is variable is an example - Just make sure that the urls in the 'idp' config are ok.
 $idp_host = 'https://www.pyc.edu.hk/simplesaml';
 
-return $settings = array(
+return $settings = [
     /*****
      * Cosmetic settings - controller routes
      **/
@@ -206,4 +206,4 @@ return $settings = array(
    'wantNameIdEncrypted' => false,
 */
 
-);
+];

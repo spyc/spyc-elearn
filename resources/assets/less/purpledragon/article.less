@@ -1,0 +1,58 @@
+.article {
+  ul {
+    padding-left: .7em;
+    padding-bottom: 10px;
+    margin: 1em 0;
+    list-style: none;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+
+    > li {
+      background: transparent url("/images/makeup/li-chevron.png") 0 0.4em no-repeat;
+      padding-left: .7em;
+      margin: 5px 0;
+    }
+  }
+
+  ol {
+    counter-reset: li;
+    list-style: none;
+    position: relative;
+    padding-bottom: 10px;
+
+    > li {
+      padding: 5px 0 5px 55px;
+      position: relative;
+      margin-bottom: 5px;
+      border: 0;
+      vertical-align: baseline;
+
+      &:before {
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 30px;
+        padding: 0 10px 0 0;
+        color: #999;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 35px;
+        text-align: right;
+        border-right: 1px solid #ddd;
+      }
+
+      &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+      }
+    }
+  }
+}
