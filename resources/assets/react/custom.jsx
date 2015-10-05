@@ -70,12 +70,6 @@
                                                 Drive
                                             </a>
                                         </p>
-                                        <p>
-                                            <a href="https://photos.google.com//a/school.pyc.edu.hk">
-                                                <FontAwesome icon="camera" className="fa-fw" />
-                                                Photos
-                                            </a>
-                                        </p>
                                     </FooterColumn>
                                     <FooterColumn title="Reporting">
                                         <p><a href="/bug">Report Issue</a></p>

@@ -16,21 +16,21 @@ require('./gulp/script');
  |
  */
 
-const MODE = 'dev';
+const scripts = [
+    'jquery.min.js',
+    'jquery.nicescroll.min.js',
+    'jquery.metismenu.min.js',
+    'raphael.min.js',
+    'morris.min.js',
+    'bootstrap.min.js',
+    'markdown.min.js',
+    'react.min.js'
+];
 
 elixir(function(mix) {
     mix.phpUnit();
     mix.less('app.less', 'public/css/style.css', {plugins: [cleancss]});
     mix.jsx();
     mix.js();
-    mix.scripts([
-        'jquery.min.js',
-        'jquery.nicescroll.min.js',
-        'jquery.metismenu.min.js',
-        'raphael.min.js',
-        'morris.min.js',
-        'bootstrap.min.js',
-        'markdown.min.js',
-        MODE === 'dev' ? 'react-dev.min.js' :'react.min.js'
-    ], 'public/js/engine.min.js');
+    mix.scripts(scripts, 'public/js/engine.min.js');
 });
