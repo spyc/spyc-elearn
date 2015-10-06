@@ -1,14 +1,23 @@
-!function(React) {
-    var Container = React.createClass({
+;var
+    Container = React.createClass({
         render: function() {
             return (
-                <div className="Container">
+                <div className="container">
                     {this.props.children}
                 </div>
             )
         }
-    });
-    var Button = React.createClass({
+    }),
+    Row = React.createClass({
+        render: function () {
+            return (
+                <div className="row">
+                    {this.props.children}
+                </div>
+            );
+        }
+    }),
+    Button = React.createClass({
         propTypes: {
             active: React.PropTypes.bool
         },
@@ -23,9 +32,8 @@
                 </button>
             );
         }
-    });
-
-    var Table = React.createClass({
+    }),
+    Table = React.createClass({
         propTypes: {
             responsive: React.PropTypes.bool,
             striped: React.PropTypes.bool
@@ -48,9 +56,8 @@
                 </table>
             );
         }
-    });
-
-    var MarkdownTextarea = React.createClass({
+    }),
+    MarkdownTextarea = React.createClass({
         generatePreview: function() {
             var content = this.refs.markdownTextarea.getDOMNode().value;
             this.setState({
@@ -84,9 +91,8 @@
                 </div>
             );
         }
-    });
-
-    var FormGroup = React.createClass({
+    }),
+    FormGroup = React.createClass({
         propTypes: {
             type: React.PropTypes.string,
             name: React.PropTypes.string,
@@ -112,9 +118,8 @@
                 </div>
             );
         }
-    });
-
-    var TabLabel = React.createClass({
+    }),
+    TabLabel = React.createClass({
         render: function() {
             return (
                 <span className="tag-label" data-level={ this.props.level }>
@@ -122,16 +127,39 @@
                 </span>
             );
         }
+    }),
+    CreativeCommons = React.createClass({
+        propTypes: {
+            license: React.PropTypes.string,
+            name: React.PropTypes.string
+        },
+        render: function() {
+            var
+                url = 'http://creativecommons.org/licenses/' + this.props.license,
+                image = 'https://licensebuttons.net/l/' + this.props.license + '88x31.png';
+            return (
+                <div className={this.props.className}>
+                    <a rel="license" href={url}>
+                        <img alt="Creative Commons Licence" style={{ 'borderWidth': 0}} src={image} />
+                    </a>
+                    <br />
+                    This work is licensed under a <a rel="license" href={url}>{this.props.name}</a>.
+                    <br />
+                    Logos and trademarks belong to their respective owners.
+                </div>
+            );
+        }
+    }),
+    FontAwesome = React.createClass({
+        propTypes: {
+            icon: React.PropTypes.string
+        },
+        render: function () {
+            var className = this.props.className + ' fa fa-' + this.props.icon;
+            return (
+                <span className={className}>
+                        {this.props.children}
+                    </span>
+            );
+        }
     });
-
-    var Bootstrap = {
-        Table: Table,
-        Button: Button,
-        Container: Container,
-        MarkdownTextarea: MarkdownTextarea,
-        FormGroup: FormGroup,
-        TabLabel
-    };
-    window.Bootstrap = Bootstrap;
-}(window.React);
-

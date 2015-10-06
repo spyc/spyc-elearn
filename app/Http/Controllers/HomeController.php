@@ -28,4 +28,19 @@ class HomeController extends Controller {
         return view('environment');
     }
 
+    /**
+     * Display Policy.
+     *
+     * @return View
+     */
+    public function policy()
+    {
+        return view('policy');
+	}
+
+    public function terms()
+    {
+        return view('terms');
+    }
+
 }

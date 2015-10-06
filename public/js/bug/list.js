@@ -1,9 +1,1 @@
-!function ($) {
-
-    $.getJSON('/api/bug/level', function (data) {
-        $.each(data, function (key, value){
-           $('.' + key).css('background-color', '#' + value);
-        });
-    });
-
-}(window.jQuery);
+!function(n){n.getJSON("/api/bug/level",function(c){n.each(c,function(c,o){n("."+c).css("background-color","#"+o)})})}(window.jQuery);

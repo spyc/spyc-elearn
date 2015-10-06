@@ -1,32 +1,34 @@
 .navbar {
-  background: @main-theme;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  top: 0;
-  right: 0;
-  left: 0;
   position: fixed;
   z-index: 1030;
   min-height: 50px;
   margin-bottom: 0;
   border: 1px solid transparent;
 
-  > .container {
-    font-size: 14px;
+  &.navbar-fixed-top {
+    background: @main-theme;
+    top: 0;
+    right: 0;
+    left: 0;
   }
 
-  * {
+  .navbar-header *,
+  .navbar-collapse * {
     color: @inverse-theme !important;
   }
+
+  li.active a,
   a.nav-active {
     background-color: @inverse-theme;
     color: @main-theme !important;
-  }
 
-  a.nav-active:hover,
-  a.nav-active:active,
-  a.nav-active:focus {
-    color: @theme-focus !important;
+    &:hover,
+    &:active,
+    &:focus {
+      color: @theme-focus !important;
+    }
   }
 
   a:hover,
@@ -35,12 +37,29 @@
     background-color: @theme-focus !important;
   }
 
-  .dropdown-menu a{
-    color: @text-color !important;
+  .dropdown-menu {
+    li, a {
+      color: @text-color !important;
+    }
+
+    a:hover,
+    a:active,
+    a:focus {
+      color: @inverse-theme !important;
+    }
   }
 
   + div {
     padding-top: 30px;
+  }
+
+  > .container {
+    font-size: 14px;
+  }
+
+  .navbar-text > a {
+    color: inherit;
+    text-decoration: none;
   }
 
 }

@@ -1,7 +1,11 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8",
-    "laravel-elixir": "*"
+    "gulp": "*",
+    "laravel-elixir": "*",
+    "gulp-uglify": "*",
+    "gulp-if": "*",
+    "gulp-react": "*",
+    "gulp-concat": "*"
   }
 }

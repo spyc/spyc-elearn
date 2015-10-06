@@ -1,4 +1,9 @@
 var elixir = require('laravel-elixir');
+var CleanCss = require('less-plugin-clean-css'),
+    cleancss = new CleanCss({advanced: true});
+
+require('./gulp/react');
+require('./gulp/script');
 
 /*
  |--------------------------------------------------------------------------
@@ -11,17 +16,21 @@ var elixir = require('laravel-elixir');
  |
  */
 
-const MODE = 'devOps';
+const scripts = [
+    'jquery.min.js',
+    'jquery.nicescroll.min.js',
+    'jquery.metismenu.min.js',
+    'raphael.min.js',
+    'morris.min.js',
+    'bootstrap.min.js',
+    'markdown.min.js',
+    'react.min.js'
+];
 
 elixir(function(mix) {
-    mix.scripts([
-        'jquery.min.js',
-        'jquery.nicescroll.min.js',
-        'jquery.metismenu.min.js',
-        'raphael.min.js',
-        'morris.min.js',
-        'bootstrap.min.js',
-        'markdown.min.js',
-        MODE === 'dev' ? 'react-dev.min.js' :'react.min.js'
-    ], 'public/js/engine.min.js');
+    mix.phpUnit();
+    mix.less('app.less', 'public/css/style.css', {plugins: [cleancss]});
+    mix.jsx();
+    mix.js();
+    mix.scripts(scripts, 'public/js/engine.min.js');
 });
