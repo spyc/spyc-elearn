@@ -26,6 +26,20 @@
         $(this).html(markdown.toHTML($(this).html().trim()));
     });
 
+    $('a.nav-slide').click(function (event) {
+        event.preventDefault();
+        $('html, body').animate({
+           scrollTop: $($(this).attr('href')).offset().top
+        }, 500);
+    });
+
+    $('[data-countdown]').each(function(){
+       $(this).countdown(new Date($(this).attr('data-countdown')), function (event){
+           var defaultFormat = '%-m Month(s) %-D Days(s) %-H hour(s) %-M Minute(s) %-S Second(s)';
+          $(this).html(event.strftime($(this).attr('data-format') || defaultFormat));
+       });
+    });
+
     window.UI = {
         label: label
     }
