@@ -29,6 +29,17 @@
                     <li><a href="{{ route('library.home') }}"><i class="fa fa-book fa-fw"></i>Library</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">
+                            {{ trans('navbar.lang') }} <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="?locale=en">{{ trans('navbar.en') }}</a>
+                                <a href="?locale=zh">{{ trans('navbar.zh') }}</a>
+                            </li>
+                        </ul>
+                    </li>
                     @if(Auth::check())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
