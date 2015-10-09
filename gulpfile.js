@@ -20,8 +20,7 @@ const scripts = [
     'jquery.min.js',
     'jquery.nicescroll.min.js',
     'jquery.metismenu.min.js',
-    'raphael.min.js',
-    'morris.min.js',
+    'jquery.countdown.min.js',
     'bootstrap.min.js',
     'markdown.min.js',
     'react.min.js'

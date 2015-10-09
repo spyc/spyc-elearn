@@ -19,6 +19,7 @@ class Kernel extends HttpKernel
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\VerifyCsrfToken::class,
+        \App\Http\Middleware\BlockAgent::class,
         \App\Http\Middleware\FrameworkHeader::class,
         \Elearn\Foundation\Middleware\Localization::class,
     ];

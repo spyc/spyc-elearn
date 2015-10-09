@@ -2,16 +2,13 @@
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   position: fixed;
-  z-index: 1030;
   min-height: 50px;
   margin-bottom: 0;
   border: 1px solid transparent;
 
   &.navbar-fixed-top {
-    background: @main-theme;
+    background: linear-gradient(to bottom,@main-theme, lighten(@main-theme, 5%));
     top: 0;
-    right: 0;
-    left: 0;
   }
 
   .navbar-header *,

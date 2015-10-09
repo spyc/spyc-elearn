@@ -59,3 +59,8 @@ Route::group(['prefix' => 'auth'], function() {
         'uses' => 'Auth\AuthController@getLogout'
     ]);
 });
+
+Route::get('countdown', [
+    'as' => 'countdown',
+    'uses' => 'HomeController@countdown'
+]);
