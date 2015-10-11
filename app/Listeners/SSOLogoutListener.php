@@ -26,14 +26,29 @@
 
 namespace App\Listeners;
 
-
 use Aacotroneo\Saml2\Events\Saml2LogoutEvent;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Auth\Guard;
 
 class SSOLogoutListener
 {
+    /**
+     * @var Guard
+     */
+    private $auth;
+
+    /**
+     * @param Guard $auth
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
+    /**
+     * @param Saml2LogoutEvent $event
+     */
     public function handle(Saml2LogoutEvent $event)
     {
-        Auth::logout();
+        $this->auth->logout();
     }
 }
