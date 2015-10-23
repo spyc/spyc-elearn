@@ -1,11 +1,15 @@
 {
   "private": true,
   "devDependencies": {
+    "elasticsearch": ">=8.0",
     "gulp": "*",
-    "laravel-elixir": "*",
-    "gulp-uglify": "*",
+    "gulp-concat": "*",
     "gulp-if": "*",
     "gulp-react": "*",
-    "gulp-concat": "*"
+    "gulp-uglify": "*",
+    "laravel-elixir": "*",
+    "laravel-elixir-imagemin": "^0.2.1",
+    "mongoose": "*",
+    "mysql": "*"
   }
 }

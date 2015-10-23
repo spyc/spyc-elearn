@@ -11,6 +11,15 @@
     <link href="{{ url('/favicon.ico') }}" rel="icon" type="image/x-icon">
 @stop
 
+@section('stylesheet')
+    @parent
+    @if('zh' == App::getLocale())
+        <link href="{{ url('/css/zh.css') }}" rel="stylesheet" type="text/css">
+    @else
+        <link href="{{ url('/css/en.css') }}" rel="stylesheet" type="text/css">
+    @endif
+@stop
+
 @section('navbar')
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
