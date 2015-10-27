@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewsTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,18 +12,22 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('author', 8);
-            $table->enum('lang', ['zh', 'en']);
+            $table->string('name', '64')->inedx();
             $table->string('title')->index();
+            $table->enum('lang', ['en', 'zh']);
             $table->text('content');
-            $table->text('tag');
+
+            $table->string('owner', 8);
+            $table->integer('group', false, true);
+            $table->integer('auth', false, true)->default(473);
 
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('author')->references('pycid')->on('user');
+            $table->foreign('owner')->references('pycid')->on('user');
+            $table->foreign('group')->references('community')->on('id');
         });
     }
 
@@ -34,6 +38,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('news');
+        Schema::drop('posts');
     }
 }
