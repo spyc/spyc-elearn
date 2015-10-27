@@ -1,0 +1,33 @@
+PHP = hhvm
+COMPOSER = $(PHP) composer.phar
+PHPUNIT = vendor/bin/phpunit
+CONSOLE = $(PHP) artisan
+
+test:
+	$(PHP) $(PHPUNIT)
+
+install: update cache test up
+	npm install
+
+sync:
+	git pull
+
+down:
+	$(CONSOLE) down
+
+up: cache
+	$(CONSOLE) up
+
+update: down clear sync
+	$(COMPOSER) self-update
+	$(COMPOSER) update --prefer-source -o --profile -vv
+
+clear:
+	$(CONSOLE) clear-compiled
+	$(CONSOLE) view:clear
+	$(CONSOLE) config:clear
+	$(CONSOLE) session:clear
+
+cache:
+	$(CONSOLE) optimize
+	$(CONSOLE) config:cache

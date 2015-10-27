@@ -3,17 +3,16 @@ COMPOSER = $(PHP) composer.phar
 PHPUNIT = vendor/bin/phpunit
 CONSOLE = $(PHP) artisan
 
+.PHONY: down clear sync test
+
 test:
 	$(PHP) $(PHPUNIT)
 
-install: update cache compile test up
-
-compile:
-	lessc --clean-css resources/assets/less/app.less public/css/style.css
-	gulp scripts
+install: update cache test up
 
 sync:
 	git pull
+	git gc
 
 down:
 	$(CONSOLE) down
@@ -23,15 +22,13 @@ up: cache
 
 update: down clear sync
 	$(COMPOSER) self-update
-	$(COMPOSER) update --no-dev -o --profile -vv
+	$(COMPOSER) update -o --no-dev --prefer-dist --profile -vv
 
 clear:
 	$(CONSOLE) clear-compiled
 	$(CONSOLE) view:clear
-	$(CONSOLE) cache:clear
 	$(CONSOLE) config:clear
 	$(CONSOLE) session:clear
 
 cache:
-	$(CONSOLE) optimize
 	$(CONSOLE) config:cache
