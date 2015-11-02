@@ -36,6 +36,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/subject') }}">Subjects</a></li>
                     <li><a href="{{ route('library.home') }}"><i class="fa fa-book fa-fw"></i>Library</a></li>
+                    <li><a href="{{ route('doc', ['docs' => 'README.md']) }}"><i class="fa fa-file-text fa-fw"></i>Documentation</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
