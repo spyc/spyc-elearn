@@ -1,18 +1,6 @@
 User-agent: Baiduspider
 Disallow: /
 
-User-agent: Slurp
-Disallow:
-
-User-agent: Googlebot
-Disallow:
-
-User-agent: Googlebot-Image
-Disallow:
-
-User-agent: Googlebot-Mobile
-Disallow:
-
 User-agent: *
 Diallow:
 
