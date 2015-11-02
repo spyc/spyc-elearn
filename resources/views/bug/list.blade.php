@@ -24,8 +24,3 @@
     </table>
 </div>
 @stop
-
-@section('scripts')
-    @parent
-    <script src="{{ url('/js/react/bug/list.js') }}"></script>
-@stop

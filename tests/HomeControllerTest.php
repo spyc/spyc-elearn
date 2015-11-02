@@ -40,4 +40,22 @@ class HomeControllerTest extends \TestCase
         $this->visit('/env')
             ->see('Ubuntu');
     }
+
+    public function testPolicy()
+    {
+        $this->visit('/policy')
+            ->see('Policy');
+    }
+
+    public function testTerm()
+    {
+        $this->visit('terms')
+            ->see('Terms of Service');
+    }
+
+    public function testCountDown()
+    {
+        $this->visit('/countdown')
+            ->see('Counting Down');
+    }
 }

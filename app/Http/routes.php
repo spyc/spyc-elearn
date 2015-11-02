@@ -60,6 +60,13 @@ Route::group(['prefix' => 'auth'], function() {
     ]);
 });
 
+Route::get('doc/{docs}', [
+    'as' => 'doc',
+    'uses' => 'HomeController@doc'
+])->where([
+    'docs' => '[a-zA-Z0-9\%\/]+\.md'
+]);
+
 Route::get('countdown', [
     'as' => 'countdown',
     'uses' => 'HomeController@countdown'

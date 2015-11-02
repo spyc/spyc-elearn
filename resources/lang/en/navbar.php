@@ -2,5 +2,8 @@
 
 return [
     'login' => 'Login',
-    'logout' => 'Logout'
+    'logout' => 'Logout',
+    'en' => 'English',
+    'zh' => 'Chinese',
+    'lang' => 'Language'
 ];

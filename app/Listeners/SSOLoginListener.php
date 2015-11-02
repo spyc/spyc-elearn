@@ -27,14 +27,33 @@
 namespace App\Listeners;
 
 use Aacotroneo\Saml2\Events\Saml2LoginEvent;
-use App\Model\User;
+use Elearn\Model\User;
+use Illuminate\Contracts\Auth\Guard;
 
 class SSOLoginListener
 {
+    /**
+     * @var Guard
+     */
+    private $auth;
+
+    /**
+     * @param Guard $auth
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
+    /**
+     * @param Saml2LoginEvent $event
+     */
     public function handle(Saml2LoginEvent $event)
     {
         $user = $event->getSaml2User();
-        $laravel = User::where(['pycid' => $user->getUserId()]);
-        Auth::login($laravel);
+        try {
+            $laravel = User::findOrException($user->getUserId());
+            $this->auth->login($laravel);
+        } catch (\Exception $e){}
     }
 }

@@ -27,8 +27,7 @@
     "spyc/elearn-foundation": "dev-master",
     "spyc/elearn-library": "dev-master",
     "spyc/elearn-subject": "dev-master",
-    "spyc/elearn-model": "dev-master",
-    "predis/predis": "~1.0"
+    "spyc/elearn-model": "dev-master"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

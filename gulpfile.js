@@ -2,8 +2,9 @@ var elixir = require('laravel-elixir');
 var CleanCss = require('less-plugin-clean-css'),
     cleancss = new CleanCss({advanced: true});
 
-require('./gulp/react');
-require('./gulp/script');
+require('./node/gulp/react');
+require('./node/gulp/script');
+require('laravel-elixir-imagemin');
 
 /*
  |--------------------------------------------------------------------------
@@ -32,4 +33,5 @@ elixir(function(mix) {
     mix.jsx();
     mix.js();
     mix.scripts(scripts, 'public/js/engine.min.js');
+    mix.imagemin('resources/assets/images', 'public/images');
 });

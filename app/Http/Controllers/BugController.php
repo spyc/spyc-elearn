@@ -28,6 +28,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\BugReportRequest;
 use Elearn\Model\Bug;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Response;
 
 /**
@@ -36,7 +37,7 @@ use Illuminate\Http\Response;
  * Class BugController
  * @package App\Http\Controllers
  */
-class BugController extends Controller
+final class BugController extends Controller
 {
 
     /**
@@ -47,12 +48,12 @@ class BugController extends Controller
     public static function getLevelColors()
     {
         return [
-            Bug::ERROR => Bug::COLOR_ERROR,
-            Bug::SUGGEST => Bug::COLOR_SUGGEST,
-            Bug::EMERGENCY => Bug::COLOR_EMERGENCY,
-            Bug::DANGER => Bug::COLOR_DANGER,
-            Bug::WARNING => Bug::COLOR_WARNING,
-            Bug::INVALID => Bug::COLOR_INVALID
+            Bug::ERROR     =>  Bug::COLOR_ERROR,
+            Bug::SUGGEST   =>  Bug::COLOR_SUGGEST,
+            Bug::EMERGENCY =>  Bug::COLOR_EMERGENCY,
+            Bug::DANGER    =>  Bug::COLOR_DANGER,
+            Bug::WARNING   =>  Bug::COLOR_WARNING,
+            Bug::INVALID   =>  Bug::COLOR_INVALID,
         ];
     }
 
@@ -69,8 +70,13 @@ class BugController extends Controller
             Bug::EMERGENCY,
             Bug::DANGER,
             Bug::WARNING,
-            Bug::INVALID
+            Bug::INVALID,
         ];
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['edit', 'update']]);
     }
 
     /**
@@ -142,9 +148,9 @@ class BugController extends Controller
     {
         $template = [];
 
-        $instance = Bug::where(['id' => $bug])->first();
-
-        if (null === $instance) {
+        try {
+            $instance = Bug::findOrFail($bug);
+        } catch (ModelNotFoundException $e) {
             return redirect()->route('bug.list');
         }
 
@@ -164,6 +170,12 @@ class BugController extends Controller
      */
     public function edit($bug)
     {
-        return redirect()->route('bug.show', $bug);
+        try {
+            $bug = Bug::findOrFail($bug);
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('bug.list');
+        }
+
+        return view('bug.edit', compact('bug'));
     }
 }
