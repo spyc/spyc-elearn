@@ -20,8 +20,8 @@ if (env('APP_DEBUG')) {
 }
 
 Route::get('/', [
-        'as' => 'home',
-        'uses' => 'HomeController@index'
+    'as' => 'home',
+    'uses' => 'HomeController@index'
 ]);
 
 Route::get('env', [
@@ -46,19 +46,6 @@ Route::get('bug/list', [
 
 Route::resource('bug', 'BugController');
 
-Route::group(['prefix' => 'auth'], function() {
-    Route::get('login', [
-        'as' => 'auth.login',
-        'uses' => 'Auth\AuthController@getLogin'
-    ]);
-
-    Route::post('login', 'Auth\AuthController@postLogin');
-
-    Route::get('logout', [
-        'as' => 'auth.logout',
-        'uses' => 'Auth\AuthController@getLogout'
-    ]);
-});
 
 Route::get('doc/{docs}', [
     'as' => 'doc',
@@ -71,3 +58,32 @@ Route::get('countdown', [
     'as' => 'countdown',
     'uses' => 'HomeController@countdown'
 ]);
+
+Route::group(['prefix' => config('saml2_settings.routesPrefix')], function () {
+
+    Route::get('login', [
+        'as' => 'auth.login',
+        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@login'
+    ]);
+
+    Route::get('logout', [
+        'as' => 'auth.logout',
+        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@logout'
+    ]);
+
+    Route::get('metadata', [
+        'as' => 'auth.metadata',
+        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@metadata'
+    ]);
+
+    Route::post('acs', [
+        'as' => 'auth.acs',
+        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@acs'
+    ]);
+
+    Route::get('sls', [
+        'as' => 'auth.sls',
+        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@sls'
+    ]);
+
+});

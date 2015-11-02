@@ -22,7 +22,6 @@ up: cache
 	$(CONSOLE) up
 
 update: storage/framework/down clear sync
-	$(COMPOSER) self-update
 	$(COMPOSER) update -o --no-dev --prefer-dist --profile -vv
 
 clear:
@@ -34,4 +33,4 @@ clear:
 cache:
 	$(CONSOLE) config:cache
 
-.PHONY: storage/framework/down clear sync test cache
+.PHONY: storage/framework/down clear sync test cache up

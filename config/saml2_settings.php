@@ -7,7 +7,7 @@ return $settings = [
     /*****
      * Cosmetic settings - controller routes
      **/
-    'useRoutes' => true, //include library routes and controllers
+    'useRoutes' => false, //include library routes and controllers
 
 
     'routesPrefix' => '/sso',
