@@ -10,15 +10,18 @@ install: update cache test up
 	npm install
 
 sync:
+	git reset --hard
 	git pull
 
-down:
+storage/framework/down:
 	$(CONSOLE) down
 
 up: cache
 	$(CONSOLE) up
 
-update: down clear sync
+update: upgrade up
+
+upgrade: storage/framework/down clear sync composer.json
 	$(COMPOSER) self-update
 	$(COMPOSER) update --prefer-source -o --profile -vv
 

@@ -3,7 +3,7 @@ COMPOSER = $(PHP) composer.phar
 PHPUNIT = vendor/bin/phpunit
 CONSOLE = $(PHP) artisan
 
-.PHONY: down clear sync test
+upgrade: update up
 
 test:
 	$(PHP) $(PHPUNIT)
@@ -11,16 +11,17 @@ test:
 install: update cache test up
 
 sync:
+	git reset --hard
 	git pull
 	git gc
 
-down:
+storage/framework/down:
 	$(CONSOLE) down
 
 up: cache
 	$(CONSOLE) up
 
-update: down clear sync
+update: storage/framework/down clear sync
 	$(COMPOSER) self-update
 	$(COMPOSER) update -o --no-dev --prefer-dist --profile -vv
 
@@ -32,3 +33,5 @@ clear:
 
 cache:
 	$(CONSOLE) config:cache
+
+.PHONY: storage/framework/down clear sync test cache
