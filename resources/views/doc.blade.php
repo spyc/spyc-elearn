@@ -15,3 +15,8 @@
     </div>
 </div>
 @stop
+
+@section('scripts')
+@parent
+    <script src="{{ url('/js/doc.js') }}"></script>
+@stop

@@ -1,0 +1,1 @@
+!function(t){"use strict";t("h1, h2, h3, h4, h5").each(function(){t(this).attr("id",t(this).text().replace(/\s/g,"-").toLowerCase())})}(window.jQuery);

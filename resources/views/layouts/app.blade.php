@@ -54,7 +54,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 @if('en' == App::getLocale())
-                                    {{ Auth::user()->ename }}
+                                    {{ \Illuminate\Support\Str::title(Auth::user()->ename) }}
                                 @else
                                     {{ Auth::user()->cname }}
                                 @endif

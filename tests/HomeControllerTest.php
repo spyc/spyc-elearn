@@ -58,4 +58,10 @@ class HomeControllerTest extends \TestCase
         $this->visit('/countdown')
             ->see('Counting Down');
     }
+
+    public function testDocument()
+    {
+        $this->visit('/doc')
+            ->see('Documentation');
+    }
 }
