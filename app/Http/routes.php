@@ -63,27 +63,34 @@ Route::group(['prefix' => config('saml2_settings.routesPrefix')], function () {
 
     Route::get('login', [
         'as' => 'auth.login',
-        'uses' => '\Aacotroneo\Saml2\Http\Controllers\Saml2Controller@login'
+        'uses' => 'Auth\AuthController@login'
     ]);
 
     Route::get('logout', [
         'as' => 'auth.logout',
-        'uses' => '\Aacotroneo\Saml2\Http\Controllers\Saml2Controller@logout'
+        'uses' => 'Auth\AuthController@logout'
     ]);
 
     Route::get('metadata', [
         'as' => 'saml_metadata',
-        'uses' => '\Aacotroneo\Saml2\Http\Controllers\Saml2Controller@metadata'
+        'uses' => 'Auth\AuthController@metadata'
     ]);
 
     Route::post('acs', [
         'as' => 'saml_acs',
-        'uses' => '\Aacotroneo\Saml2\Http\Controllers\Saml2Controller@acs'
+        'uses' => 'Auth\AuthController@acs'
     ]);
 
     Route::get('sls', [
         'as' => 'saml_sls',
-        'uses' => '\Aacotroneo\Saml2\Http\Controllers\Saml2Controller@sls'
+        'uses' => 'Auth\AuthController@sls'
     ]);
 
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', [
+        'as' => 'admin.home',
+        'uses' => 'AdminController@dashboard'
+    ]);
 });
