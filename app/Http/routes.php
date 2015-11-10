@@ -93,4 +93,9 @@ Route::group(['prefix' => 'admin'], function () {
         'as' => 'admin.home',
         'uses' => 'AdminController@dashboard'
     ]);
+
+    Route::get('communities', [
+        'as' => 'admin.communities',
+        'uses' => 'AdminController@community'
+    ]);
 });
