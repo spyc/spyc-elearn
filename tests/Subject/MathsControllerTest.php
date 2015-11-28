@@ -34,11 +34,20 @@ class MathsControllerTest extends \TestCase
         $this->visit('/subject/maths')
             ->see('Maths Website')
             ->dontSee('Open Source in SPYC');
+        $this->navbar();
     }
 
     public function testAbout()
     {
         $this->visit('/subject/maths/about')
             ->see('Maths Club Committee');
+        $this->navbar();
+    }
+
+    protected function navbar()
+    {
+        $this->see('Maths')
+            ->see('About Us');
+        return $this;
     }
 }

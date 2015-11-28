@@ -33,35 +33,50 @@ class HomeControllerTest extends \TestCase
     {
         $this->visit('/')
             ->see('Open Source in SPYC');
+        $this->navbar();
     }
 
     public function testEnv()
     {
         $this->visit('/env')
             ->see('Ubuntu');
+        $this->navbar();
     }
 
     public function testPolicy()
     {
         $this->visit('/policy')
             ->see('Policy');
+        $this->navbar();
     }
 
     public function testTerm()
     {
         $this->visit('terms')
             ->see('Terms of Service');
+        $this->navbar();
     }
 
     public function testCountDown()
     {
         $this->visit('/countdown')
             ->see('Counting Down');
+        $this->navbar();
     }
 
     public function testDocument()
     {
         $this->visit('/doc')
             ->see('Documentation');
+        $this->navbar();
+    }
+
+    protected function navbar()
+    {
+        $this->see('Project WHJSLS')
+            ->see('Subjects')
+            ->see('Library')
+            ->see('Documentation');
+        return $this;
     }
 }
