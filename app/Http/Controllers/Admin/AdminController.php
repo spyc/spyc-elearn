@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Elearn\Model\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+abstract class AdminController extends Controller
 {
     /**
      * @var Guard
@@ -25,24 +25,6 @@ class AdminController extends Controller
     }
 
     /**
-     * @return \Illuminate\View\View
-     */
-    public function dashboard()
-    {
-        $template = $this->basic($this->auth);
-        return view('admin.dashboard', $template);
-    }
-
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function community()
-    {
-        $template = $this->basic($this->auth);
-        return view('admin.community.list', $template);
-    }
-
-    /**
      * @param Guard $auth
      *
      * @return array
@@ -54,6 +36,9 @@ class AdminController extends Controller
             throw new \LogicException();
         }
         $community = $user->community;
-        return ['communities' => $community];
+        return [
+            'communities' => $community,
+            'user' => $user
+        ];
     }
 }

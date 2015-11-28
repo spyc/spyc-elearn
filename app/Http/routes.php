@@ -91,11 +91,16 @@ Route::group(['prefix' => config('saml2_settings.routesPrefix')], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', [
         'as' => 'admin.home',
-        'uses' => 'AdminController@dashboard'
+        'uses' => 'Admin\BasicController@dashboard'
     ]);
 
     Route::get('communities', [
         'as' => 'admin.communities',
-        'uses' => 'AdminController@community'
+        'uses' => 'Admin\BasicController@list'
+    ]);
+
+    Route::get('community/{community}', [
+        'as' => 'admin.community.show',
+        'uses' => 'Admin\BasicController@show'
     ]);
 });

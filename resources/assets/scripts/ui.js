@@ -42,7 +42,7 @@
 
     window.UI = {
         label: label
-    }
+    };
 
     var trigger = $('.hamburger'),
         overlay = $('.overlay'),
