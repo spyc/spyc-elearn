@@ -34,8 +34,11 @@ class CommonSession extends StartSession
             $key = 'session:' . $id;
             $content = $session->all();
             $value = Json::dump($content);
+            $this->redis->watch($key);
+            $this->redis->multi();
             $this->redis->set($key, $value);
             $this->redis->expire($key, $this->getSessionLifetimeInSeconds());
+            $this->redis->exec();
 
             $cookie = new Cookie(env('COMMON_SESSION'), $id, $this->getCookieExpirationDate(),
                 $config['path'], $config['domain'], Arr::get($config, 'secure', false));
