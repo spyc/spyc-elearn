@@ -114,8 +114,8 @@ return [
 
 		'cluster' => false,
 
-		'default' => [
-			'host'     => '127.0.0.1',
+		'session' => [
+			'host'     => '127.0.1.8',
 			'port'     => 6379,
 			'database' => 0,
 		],
