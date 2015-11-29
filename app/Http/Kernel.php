@@ -16,7 +16,7 @@ class Kernel extends HttpKernel
         \Elearn\Foundation\Middleware\ServiceMaintenance::class,
         \App\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \Illuminate\Session\Middleware\StartSession::class,
+        \App\Http\Middleware\CreateSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\VerifyCsrfToken::class,
         \App\Http\Middleware\BlockAgent::class,
