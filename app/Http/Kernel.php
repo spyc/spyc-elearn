@@ -16,10 +16,10 @@ class Kernel extends HttpKernel
         \Elearn\Foundation\Middleware\ServiceMaintenance::class,
         \App\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-        \App\Http\Middleware\CreateSession::class,
+        \Illuminate\Session\Middleware\StartSession::class,
+        \App\Http\Middleware\CommonSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
         \App\Http\Middleware\VerifyCsrfToken::class,
-        \App\Http\Middleware\BlockAgent::class,
         \App\Http\Middleware\FrameworkHeader::class,
         \Elearn\Foundation\Middleware\Localization::class,
     ];
