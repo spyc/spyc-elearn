@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Elearn\Model\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
