@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class HomeController extends Controller {
@@ -60,8 +61,15 @@ class HomeController extends Controller {
         return view('countdown');
     }
 
-    public function doc($docs)
+    public function doc(Request $request, $docs = "README.md")
     {
+        if (Str::is('/doc', $request->getRequestUri())) {
+            return redirect()->route('doc', ['docs' => 'README.md']);
+        }
+
+        if (Str::endsWith($docs, '/')) {
+            $docs .= 'README.md';
+        }
         $url = 'https://raw.githubusercontent.com/spyc/elearn-doc/master/' . $docs;
         $client = new Client();
         try {

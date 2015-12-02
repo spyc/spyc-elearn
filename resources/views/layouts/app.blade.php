@@ -54,7 +54,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 @if('en' == App::getLocale())
-                                    {{ Auth::user()->ename }}
+                                    {{ \Illuminate\Support\Str::title(Auth::user()->ename) }}
                                 @else
                                     {{ Auth::user()->cname }}
                                 @endif
@@ -90,7 +90,9 @@
 
 @section('scripts')
     @parent
+    <script src="{{ url('/js/ga.js') }}"></script>
     <script src="{{ url('/js/react/component.js') }}"></script>
     <script src="{{ url('/js/react/custom.js') }}"></script>
     <script src="{{ url('/js/ui.js') }}"></script>
+    <script async src='//www.google-analytics.com/analytics.js'></script>
 @stop

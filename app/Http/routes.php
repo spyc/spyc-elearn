@@ -47,7 +47,7 @@ Route::get('bug/list', [
 Route::resource('bug', 'BugController');
 
 
-Route::get('doc/{docs}', [
+Route::get('doc/{docs?}', [
     'as' => 'doc',
     'uses' => 'HomeController@doc'
 ])->where([
@@ -63,27 +63,44 @@ Route::group(['prefix' => config('saml2_settings.routesPrefix')], function () {
 
     Route::get('login', [
         'as' => 'auth.login',
-        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@login'
+        'uses' => 'Auth\AuthController@login'
     ]);
 
     Route::get('logout', [
         'as' => 'auth.logout',
-        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@logout'
+        'uses' => 'Auth\AuthController@logout'
     ]);
 
     Route::get('metadata', [
-        'as' => 'auth.metadata',
-        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@metadata'
+        'as' => 'saml_metadata',
+        'uses' => 'Auth\AuthController@metadata'
     ]);
 
     Route::post('acs', [
-        'as' => 'auth.acs',
-        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@acs'
+        'as' => 'saml_acs',
+        'uses' => 'Auth\AuthController@acs'
     ]);
 
     Route::get('sls', [
-        'as' => 'auth.sls',
-        'uses' => 'Aacotroneo\Saml2\Http\Controllers\Saml2Controller@sls'
+        'as' => 'saml_sls',
+        'uses' => 'Auth\AuthController@sls'
     ]);
 
+});
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', [
+        'as' => 'admin.home',
+        'uses' => 'Admin\BasicController@dashboard'
+    ]);
+
+    Route::get('communities', [
+        'as' => 'admin.communities',
+        'uses' => 'Admin\BasicController@list'
+    ]);
+
+    Route::get('community/{community}', [
+        'as' => 'admin.community.show',
+        'uses' => 'Admin\BasicController@show'
+    ]);
 });

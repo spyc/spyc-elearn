@@ -58,8 +58,7 @@ class BugControllerTest extends \TestCase
     public function testIndex()
     {
         $this->visit('/bug')
-            ->see('Report us a bug and we make it better');
-        $this->visit('/bug')
+            ->see('Report us a bug and we make it better')
             ->click('View Issue')
             ->seePageIs('/bug/list');
         $this->visit('/bug')
@@ -71,5 +70,11 @@ class BugControllerTest extends \TestCase
     {
         $this->visit('/bug/list')
             ->see('Issue List');
+    }
+
+    public function testCreate()
+    {
+        $this->visit('/bug/create')
+            ->see('Title');
     }
 }

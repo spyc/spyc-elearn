@@ -32,6 +32,16 @@ class LibraryControllerTest extends \TestCase
     public function testIndex()
     {
         $this->visit('/library')
-            ->see('About Us');
+            ->see('About Us')
+            ->navbar();
+    }
+
+    protected function navbar()
+    {
+        $this->see('Library')
+            ->see('OPAC')
+            ->see('About Us')
+            ->see('News');
+        return $this;
     }
 }

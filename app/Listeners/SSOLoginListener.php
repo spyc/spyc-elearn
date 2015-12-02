@@ -26,10 +26,10 @@
 
 namespace App\Listeners;
 
-use Log;
 use Aacotroneo\Saml2\Events\Saml2LoginEvent;
 use Elearn\Model\User;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Log;
 
 class SSOLoginListener
 {
@@ -54,8 +54,10 @@ class SSOLoginListener
         $user = $event->getSaml2User();
         try {
             $id = $user->getAttributes()['sAMAccountName'][0];
-            $laravel = User::findOrException($id);
+            $laravel = User::findOrFail($id);
             $this->auth->login($laravel);
-        } catch (\Exception $e){}
+        } catch (\Exception $e){
+            Log::error($e);
+        }
     }
 }

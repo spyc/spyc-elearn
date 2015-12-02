@@ -5,6 +5,8 @@ namespace App\Commands\Session;
 use App\Commands\Command;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Redis\Database;
+use Illuminate\Support\Str;
 
 class SessionClearCommand extends Command implements SelfHandling
 {
@@ -31,30 +33,47 @@ class SessionClearCommand extends Command implements SelfHandling
     protected $files;
 
     /**
-     * Create a new command instance.
-     *
-     * @return void
+     * @var Database
      */
-    public function __construct(Filesystem $files)
+    protected $client;
+
+    /**
+     * Create a new command instance.
+     */
+    public function __construct(Filesystem $files, Database $db)
     {
         parent::__construct();
 
         $this->files = $files;
+        $this->client = $db;
     }
 
     /**
      * Execute the command.
-     *
-     * @return void
      */
     public function handle()
+    {
+        $method = 'clear' . Str::ucfirst(env('SESSION_DRIVER')) . 'Session';
+        $this->$method();
+
+        $this->info('Clear Session Success!');
+    }
+
+    protected function clearFileSession()
     {
         $sessions = $this->files->glob($this->laravel['config']['session.files'] . '/*');
 
         foreach ($sessions as $session) {
             $this->files->delete($session);
         }
+    }
 
-        $this->info('Clear Session Success!');
+    protected function clearRedisSession()
+    {
+        $redis = $this->client->connection('session');
+        $sessions = $redis->keys('laravel:*');
+        foreach ($sessions as $session) {
+            $redis->del($session);
+        }
     }
 }
